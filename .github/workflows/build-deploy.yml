@@ -1,0 +1,122 @@
+name: Build & Deploy Unity Project
+
+on: push
+
+jobs:
+  build:
+    name: Build my project ✨
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord Commit Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+
+      - name: Discord Workflow Start Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '💬 Starting CI workflow for `${{ github.repository }}` on ${{ github.ref_type }}: `${{ github.ref_name }}`. See progress at https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}'
+
+      # Checkout (without LFS)
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Git LFS
+      - name: Create LFS file list
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+
+      - name: Restore LFS cache
+        uses: actions/cache@v2
+        id: lfs-cache
+        with:
+          path: .git/lfs
+          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
+
+      - name: Git LFS Pull
+        run: |
+          git lfs pull
+          git add .
+          git reset --hard
+
+      # Cache
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      - name: Discord Pre-build Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '🔧 Starting WebGL build of `${{ github.repository }}` on ${{ github.ref_type }}: `${{ github.ref_name }}`'
+
+      # Build
+      - name: Build project
+        id: build
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: WebGL
+
+      - name: Discord Build Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '✅ Successfully built `${{ github.repository }}` on ${{ github.ref_type }}: `${{ github.ref_name }}` for WebGL, deploying...'
+
+      - name: Discord Build Failure Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ failure() && env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '❗️ Build failed for `${{ github.repository }}` on ${{ github.ref_type }}: `${{ github.ref_name }}`'
+
+      # Output
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
+
+      # Deploy
+      - name: S3 Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
+        run: |
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*.br" --exclude "*.gz"
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.data.gz" --content-type binary/octet-stream --content-encoding gzip 
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.js.gz" --content-type application/javascript --content-encoding gzip 
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.wasm.gz" --content-type application/wasm --content-encoding gzip
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.data.br" --content-type binary/octet-stream --content-encoding br
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.js.br" --content-type application/javascript --content-encoding br
+          aws s3 cp build/WebGL/WebGL s3://${{ secrets.S3_BUCKET }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }} --recursive --exclude "*" --include "*.wasm.br" --content-type application/wasm --content-encoding br
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }}/*"
+
+      - name: Discord Deploy Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '✅ Deployed WebGL build of `${{ github.repository }}` at: ${{ secrets.CLOUDFRONT_URL }}/${{ github.repository }}/${{ github.ref_type }}/${{ github.ref_name }}/index.html'
+
+      - name: Discord Deploy Failure Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        if: ${{ failure() && env.DISCORD_WEBHOOK != '' && env.DISCORD_WEBHOOK != 'disabled' }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: '❗️ Failed to deploy build of `${{ github.repository }}` on ${{ github.ref_type }}: `${{ github.ref_name }}`'
