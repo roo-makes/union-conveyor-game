@@ -1,0 +1,108 @@
+{
+    "name": "DefaultControls",
+    "maps": [
+        {
+            "name": "Dialog",
+            "id": "5cde07e9-57b3-45b5-8644-ac8371126164",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "Gameplay",
+            "id": "75c2c481-5164-4441-9033-51a7c14d4d88",
+            "actions": [
+                {
+                    "name": "LeftBtn",
+                    "type": "Button",
+                    "id": "565ca978-a660-4cd5-a997-8285325d2ded",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CenterBtn",
+                    "type": "Button",
+                    "id": "af7186cd-6d34-4f37-8bc8-3df20c407958",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightBtn",
+                    "type": "Button",
+                    "id": "bcb69f27-0df9-4fe1-bdfc-38962e56cfdc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4fe2a707-f21b-4a5d-b36f-7a6bf4f20b61",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftBtn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "baba64e7-0af9-4aad-bea4-5ba5fd1d1e7d",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CenterBtn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fb70e7d-fdf2-4c31-b637-08e74b56ae51",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightBtn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "e626acae-9aba-48eb-8e67-add566c0a7c0",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "49c27a5c-ffff-411c-a795-fde0313c6239",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "52bbc13e-9c67-4c14-899a-2b973a68cd57",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
