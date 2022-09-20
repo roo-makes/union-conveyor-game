@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CenterZone
   - EndZone
+  - RightZone
+  - Widget
+  - WorkZone
   layers:
   - Default
   - TransparentFX
@@ -13,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Widgets
   - 
   - 
   - 
@@ -42,4 +45,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ConveyorBoxBack
+    uniqueID: 3919485513
+    locked: 0
+  - name: Conveyor
+    uniqueID: 337878321
+    locked: 0
+  - name: Widget
+    uniqueID: 671370641
+    locked: 0
+  - name: WorkZone
+    uniqueID: 1800065037
+    locked: 0
+  - name: ConveyorBoxFront
+    uniqueID: 890046245
+    locked: 0
+  - name: People
+    uniqueID: 791594087
     locked: 0
