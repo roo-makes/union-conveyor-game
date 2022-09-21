@@ -465,7 +465,7 @@ MonoBehaviour:
   fill:
     type: 0
     space: 0
-    colorStart: {r: 0, g: 0.87843144, b: 1, a: 1}
+    colorStart: {r: 0, g: 0.87843144, b: 1, a: 0.3882353}
     colorEnd: {r: 0, g: 0.87843144, b: 1, a: 0}
     linearStart: {x: 0, y: 1, z: 0}
     linearEnd: {x: 0, y: 0, z: 0}

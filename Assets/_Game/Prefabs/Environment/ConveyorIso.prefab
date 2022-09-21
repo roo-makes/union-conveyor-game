@@ -1340,7 +1340,7 @@ MonoBehaviour:
   stencilRefID: 0
   stencilReadMask: 255
   stencilWriteMask: 255
-  geometry: 1
+  geometry: 0
   colorMode: 0
   colorEnd: {r: 1, g: 1, b: 1, a: 1}
   start: {x: -5, y: 0, z: 0}
@@ -1357,7 +1357,7 @@ MonoBehaviour:
     size: 0.25
     spacing: 0.125
     offset: 0
-    shapeModifier: 0.5
+    shapeModifier: -0.5
 --- !u!33 &334506636562501465
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1608,7 +1608,7 @@ MonoBehaviour:
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 1
+          value: 2.67
         fsmIntParams: []
         fsmBoolParams: []
         fsmVector2Params: []
@@ -1669,7 +1669,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1

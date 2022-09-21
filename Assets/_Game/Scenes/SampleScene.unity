@@ -2043,6 +2043,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5032602050565720780, guid: 3271c68c416af45cd9f4ecc9fa8720cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5419254255376460065, guid: 3271c68c416af45cd9f4ecc9fa8720cd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2093,7 +2097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6800582032541274167, guid: 3271c68c416af45cd9f4ecc9fa8720cd, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[0].value
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6833079725136525358, guid: 3271c68c416af45cd9f4ecc9fa8720cd, type: 3}
       propertyPath: m_Mesh

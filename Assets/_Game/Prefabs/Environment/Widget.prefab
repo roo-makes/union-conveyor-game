@@ -1576,7 +1576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1149575964450727347}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3852184319198344451
 MonoBehaviour:
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd51d29965c9d04599a2fdc8a833c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blendMode: 1
+  blendMode: 0
   scaleMode: 0
   color: {r: 0, g: 0, b: 0, a: 1}
   detailLevel: 2
@@ -1656,7 +1656,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e85a37b0e9597e54692c74db5f7eb1ad, type: 2}
+  - {fileID: 2100000, guid: 222ec55c548324845b1dd960be702323, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1676,7 +1676,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 671370641
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2151802885062440476
 GameObject:
@@ -1706,8 +1706,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3630327228553695883}
   - {fileID: 4799298650897049156}
+  - {fileID: 3630327228553695883}
   - {fileID: 6788665585338286626}
   - {fileID: 9057252793058988079}
   - {fileID: 1131040369771555692}
@@ -4348,7 +4348,7 @@ MonoBehaviour:
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 0.83
+        value: 1
       - useVariable: 1
         name: movePosition
         tooltip: 
@@ -4382,7 +4382,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 1
+    preprocessed: 0
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd51d29965c9d04599a2fdc8a833c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blendMode: 1
+  blendMode: 0
   scaleMode: 0
   color: {r: 0, g: 0, b: 0, a: 1}
   detailLevel: 2
@@ -4916,7 +4916,7 @@ MonoBehaviour:
   angRadiansEnd: 0
   radius: 0.25
   radiusSpace: 0
-  thickness: 0.1
+  thickness: 0.05
   thicknessSpace: 0
   arcEndCaps: 0
   matchDashSpacingToSize: 1
@@ -4957,7 +4957,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d72c5e047d4188246887ffb9389e25a7, type: 2}
+  - {fileID: 2100000, guid: f1152319638614c47882e3b5d0aedbb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4977,7 +4977,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 671370641
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6121990502289734061
 GameObject:
@@ -5011,7 +5011,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1149575964450727347}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &25234186131677676
 MonoBehaviour:
@@ -5050,7 +5050,7 @@ MonoBehaviour:
   angRadiansEnd: 3.1415927
   radius: 0.25
   radiusSpace: 0
-  thickness: 0.1
+  thickness: 0.05
   thicknessSpace: 0
   arcEndCaps: 0
   matchDashSpacingToSize: 1
@@ -5239,7 +5239,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 671370641
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7739988360679647922
 GameObject:
@@ -5367,7 +5367,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 671370641
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8899758432277031727
 GameObject:
@@ -5416,7 +5416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd51d29965c9d04599a2fdc8a833c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blendMode: 1
+  blendMode: 0
   scaleMode: 0
   color: {r: 0, g: 0, b: 0, a: 0.45490196}
   detailLevel: 2
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   angRadiansEnd: 6.2831855
   radius: 0.25
   radiusSpace: 0
-  thickness: 0.1
+  thickness: 0.05
   thicknessSpace: 0
   arcEndCaps: 0
   matchDashSpacingToSize: 1
@@ -5482,7 +5482,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d72c5e047d4188246887ffb9389e25a7, type: 2}
+  - {fileID: 2100000, guid: f1152319638614c47882e3b5d0aedbb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
