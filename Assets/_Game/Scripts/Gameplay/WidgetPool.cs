@@ -69,6 +69,7 @@ namespace _Game.Scripts.Gameplay
         private void OnRelease(GameObject obj)
         {
             obj.SetActive(false);
+            obj.transform.SetParent(transform);
         }
 
         private void OnObjectDestroy(GameObject obj)
