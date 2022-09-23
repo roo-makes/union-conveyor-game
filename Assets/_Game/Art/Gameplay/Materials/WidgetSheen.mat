@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DripNozzle
+  m_Name: WidgetSheen
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_ValidKeywords:
-  - ALPHAOUTLINE_ON
+  - SHINE_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -93,7 +93,7 @@ Material:
     - _ColorChangeTolerance2: 0.25
     - _ColorChangeTolerance3: 0.25
     - _ColorRampBlend: 1
-    - _ColorRampLuminosity: 0
+    - _ColorRampLuminosity: -0.313
     - _ColorRampOutline: 0
     - _ColorSwapBlend: 1
     - _ColorSwapBlueLuminosity: 0.5
@@ -118,7 +118,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 3
     - _GlitchSize: 1
-    - _Glow: 10
+    - _Glow: 0
     - _GlowGlobal: 1
     - _GradBlend: 1
     - _GradBoostX: 1.2
@@ -127,15 +127,15 @@ Material:
     - _GrassManualAnim: 1
     - _GrassManualToggle: 0
     - _GrassRadialBend: 0.1
-    - _GrassSpeed: 2
-    - _GrassWind: 20
+    - _GrassSpeed: 37.7
+    - _GrassWind: 50
     - _GreyscaleBlend: 1
     - _GreyscaleLuminosity: 0
     - _GreyscaleOutline: 0
     - _HandDrawnAmount: 10
     - _HandDrawnSpeed: 5
-    - _HitEffectBlend: 0.279
-    - _HitEffectGlow: 1
+    - _HitEffectBlend: 1
+    - _HitEffectGlow: 5
     - _HologramBlend: 1
     - _HologramMaxAlpha: 0.75
     - _HologramMinAlpha: 0.1
@@ -161,11 +161,11 @@ Material:
     - _OffsetUvY: 0
     - _OnlyInnerOutline: 0
     - _OnlyOutline: 0
-    - _OutlineAlpha: 1
+    - _OutlineAlpha: 0.468
     - _OutlineDistortAmount: 0.5
     - _OutlineDistortTexXSpeed: 5
     - _OutlineDistortTexYSpeed: 5
-    - _OutlineGlow: 1.5
+    - _OutlineGlow: 67.5
     - _OutlinePixelWidth: 1
     - _OutlineTexXSpeed: 10
     - _OutlineTexYSpeed: 0
@@ -188,10 +188,10 @@ Material:
     - _ShakeUvSpeed: 2.5
     - _ShakeUvX: 1.5
     - _ShakeUvY: 1
-    - _ShineGlow: 1
-    - _ShineLocation: 0.5
-    - _ShineRotate: 0
-    - _ShineWidth: 0.1
+    - _ShineGlow: 0.5
+    - _ShineLocation: 0.496
+    - _ShineRotate: 0.81
+    - _ShineWidth: 0.201
     - _TextureScrollXSpeed: 1
     - _TextureScrollYSpeed: 0
     - _TwistUvAmount: 1
@@ -231,5 +231,5 @@ Material:
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _OverlayColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShineColor: {r: 0.34069067, g: 0.7635254, b: 0.8301887, a: 1}
   m_BuildTextureStacks: []
