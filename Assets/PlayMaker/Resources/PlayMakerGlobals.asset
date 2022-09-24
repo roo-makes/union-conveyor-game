@@ -36,3 +36,7 @@ MonoBehaviour:
   - gl-fillPressed
   - gl-startFill
   - gl-stopFill
+  - startCharge
+  - doZap
+  - completedCharge
+  - stopCharge

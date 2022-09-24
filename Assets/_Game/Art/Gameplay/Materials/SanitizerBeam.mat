@@ -11,7 +11,6 @@ Material:
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_ValidKeywords:
   - GRADIENT2COL_ON
-  - OVERLAY_ON
   - SHINE_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -190,10 +189,10 @@ Material:
     - _ShakeUvSpeed: 2.5
     - _ShakeUvX: 1.5
     - _ShakeUvY: 1
-    - _ShineGlow: 57
+    - _ShineGlow: 100
     - _ShineLocation: 0.346
     - _ShineRotate: 2.36
-    - _ShineWidth: 0.05
+    - _ShineWidth: 0.1
     - _TextureScrollXSpeed: 1
     - _TextureScrollYSpeed: 0
     - _TwistUvAmount: 1
@@ -210,7 +209,7 @@ Material:
     - _ZoomUvAmount: 0.5
     m_Colors:
     - _AlphaOutlineColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.9953443, b: 0.6556604, a: 0.50980395}
+    - _Color: {r: 1, g: 0.9953443, b: 0.6556604, a: 0.4392157}
     - _ColorChangeNewCol: {r: 1, g: 1, b: 0, a: 1}
     - _ColorChangeNewCol2: {r: 1, g: 1, b: 0, a: 1}
     - _ColorChangeNewCol3: {r: 1, g: 1, b: 0, a: 1}
