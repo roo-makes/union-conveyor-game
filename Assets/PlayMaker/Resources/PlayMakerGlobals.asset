@@ -40,3 +40,7 @@ MonoBehaviour:
   - doZap
   - completedCharge
   - stopCharge
+  - gl-sanitizerDischarge
+  - gl-sanitizerCharged
+  - gl-sanitizerChargeStarted
+  - gl-sanitizerChargeStopped
