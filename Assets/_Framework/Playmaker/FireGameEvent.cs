@@ -2,7 +2,7 @@ using HutongGames.PlayMaker;
 
 namespace _Framework.Playmaker
 {
-    [ActionCategory("GameEvent")]
+    [ActionCategory("Framework")]
     [Tooltip(
         "Fires a GameEvent")]
     public class FireGameEvent : FsmStateAction

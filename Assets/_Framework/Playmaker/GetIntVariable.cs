@@ -3,17 +3,17 @@ using HutongGames.PlayMaker;
 namespace _Framework.Playmaker
 {
     [ActionCategory("Framework")]
-    [Tooltip("Gets a float from a FloatVariable")]
-    public class GetFloatVariable : FsmStateAction
+    [Tooltip("Gets a float from a IntVariable")]
+    public class GetIntVariable : FsmStateAction
     {
-        [RequiredField] [ObjectType(typeof(FloatVariable))]
-        public FsmObject FloatVar;
+        [RequiredField] [ObjectType(typeof(IntVariable))]
+        public FsmObject IntVar;
 
-        [UIHint(UIHint.Variable)] public FsmFloat OutputFloat;
+        [UIHint(UIHint.Variable)] public FsmInt OutputInt;
 
         public override void OnEnter()
         {
-            OutputFloat.Value = ((FloatVariable)FloatVar.Value).Value;
+            OutputInt.Value = ((IntVariable)IntVar.Value).Value;
         }
     }
 }

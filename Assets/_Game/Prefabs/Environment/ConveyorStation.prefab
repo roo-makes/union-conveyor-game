@@ -5617,6 +5617,7 @@ MonoBehaviour:
         actionNames:
         - HutongGames.PlayMaker.Actions.SendEvent
         - HutongGames.PlayMaker.Actions.SetFloatValue
+        - _Framework.Playmaker.GetFloatVariable
         - HutongGames.PlayMaker.Actions.FloatDivide
         - HutongGames.PlayMaker.Actions.FloatAdd
         - HutongGames.PlayMaker.Actions.FloatClamp
@@ -5628,10 +5629,11 @@ MonoBehaviour:
         - 
         - 
         - 
-        actionEnabled: 010101010101
-        actionIsOpen: 000000000000
-        actionStartIndex: 0000000004000000070000000a0000000e00000012000000
-        actionHashCodes: 5e69bb049845b3059845b3052a6e8a000c8bc1001bcdca04
+        - 
+        actionEnabled: 01010101010101
+        actionIsOpen: 00000000000000
+        actionStartIndex: 000000000400000007000000090000000c0000001000000014000000
+        actionHashCodes: 5e69bb049845b30595e358029845b3052a6e8a000c8bc1001bcdca04
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -5674,7 +5676,14 @@ MonoBehaviour:
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams: []
-        fsmObjectParams: []
+        fsmObjectParams:
+        - useVariable: 1
+          name: chargeTime
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          typeName: _Framework.FloatVariable
+          value: {fileID: 11400000, guid: 7606577d602b04249a79675936065e8b, type: 2}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams: []
@@ -5698,17 +5707,23 @@ MonoBehaviour:
           networkSync: 0
           value: 1
         - useVariable: 1
+          name: chargeTimeTemp
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
           name: chargeRate
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 1
         - useVariable: 1
-          name: chargeTime
+          name: chargeTimeTemp
           tooltip: 
-          showInInspector: 1
+          showInInspector: 0
           networkSync: 0
-          value: 0.5
+          value: 0
         - useVariable: 1
           name: chargeProgress
           tooltip: 
@@ -5774,7 +5789,7 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1f000000170000000f000000010000000f0000000f000000010000000f0000000f000000010000000f0000000f00000001000000010000000f0000000f0000000f000000010000000f0000000f0000000f00000017000000170000001700000001000000
+        paramDataType: 1f000000170000000f000000010000000f0000000f00000001000000180000000f0000000f0000000f000000010000000f0000000f00000001000000010000000f0000000f0000000f000000010000000f0000000f0000000f00000017000000170000001700000001000000
         paramName:
         - eventTarget
         - sendEvent
@@ -5783,6 +5798,8 @@ MonoBehaviour:
         - floatVariable
         - floatValue
         - everyFrame
+        - FloatVar
+        - OutputFloat
         - floatVariable
         - divideBy
         - everyFrame
@@ -5801,8 +5818,8 @@ MonoBehaviour:
         - lessThan
         - greaterThan
         - everyFrame
-        paramDataPos: 0000000000000000000000000000000001000000020000000100000003000000040000000200000005000000060000000300000004000000070000000800000009000000050000000a0000000b0000000c00000001000000020000000300000006000000
-        paramByteDataSize: 00000000000000000000000001000000000000000000000001000000000000000000000001000000000000000000000001000000010000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000
+        paramDataPos: 0000000000000000000000000000000001000000020000000100000000000000030000000400000005000000020000000600000007000000030000000400000008000000090000000a000000050000000b0000000c0000000d00000001000000020000000300000006000000
+        paramByteDataSize: 000000000000000000000000010000000000000000000000010000000000000000000000000000000000000001000000000000000000000001000000010000000000000000000000000000000100000000000000000000000000000000000000000000000000000001000000
     - name: Charged
       description: 
       colorIndex: 0
@@ -5934,14 +5951,16 @@ MonoBehaviour:
       actionData:
         actionNames:
         - HutongGames.PlayMaker.Actions.SendEvent
+        - _Framework.Playmaker.GetFloatVariable
         - HutongGames.PlayMaker.Actions.TweenFloat
         customNames:
         - 
         - 
-        actionEnabled: 0101
-        actionIsOpen: 0101
-        actionStartIndex: 0000000004000000
-        actionHashCodes: 5e69bb0481bfb304
+        - 
+        actionEnabled: 010101
+        actionIsOpen: 010101
+        actionStartIndex: 000000000400000006000000
+        actionHashCodes: 5e69bb0495e3580281bfb304
         unityObjectParams: []
         fsmGameObjectParams: []
         fsmOwnerDefaultParams: []
@@ -5990,7 +6009,14 @@ MonoBehaviour:
         fsmPropertyParams: []
         layoutOptionParams: []
         fsmStringParams: []
-        fsmObjectParams: []
+        fsmObjectParams:
+        - useVariable: 1
+          name: dischargeTime
+          tooltip: 
+          showInInspector: 1
+          networkSync: 0
+          typeName: _Framework.FloatVariable
+          value: {fileID: 11400000, guid: 650bb929668ff42c0bd5550f3add5821, type: 2}
         fsmVarParams: []
         fsmArrayParams: []
         fsmEnumParams:
@@ -6004,6 +6030,12 @@ MonoBehaviour:
         fsmFloatParams:
         - useVariable: 0
           name: 
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: dischargeTimeTemp
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -6032,12 +6064,12 @@ MonoBehaviour:
           showInInspector: 0
           networkSync: 0
           value: 0
-        - useVariable: 0
-          name: 
+        - useVariable: 1
+          name: dischargeTimeTemp
           tooltip: 
           showInInspector: 0
           networkSync: 0
-          value: 0.25
+          value: 0
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 0
@@ -6059,12 +6091,14 @@ MonoBehaviour:
         arrayParamTypes: []
         customTypeSizes: 
         customTypeNames: []
-        paramDataType: 1f000000170000000f000000010000000f000000070000000f000000070000000f0000000f0000002a000000160000000f000000110000000700000017000000020000000100000007000000
+        paramDataType: 1f000000170000000f00000001000000180000000f0000000f000000070000000f000000070000000f0000000f0000002a000000160000000f000000110000000700000017000000020000000100000007000000
         paramName:
         - eventTarget
         - sendEvent
         - delay
         - everyFrame
+        - FloatVar
+        - OutputFloat
         - variable
         - fromOption
         - fromValue
@@ -6080,8 +6114,8 @@ MonoBehaviour:
         - normalizedTime
         - everyFrame
         - updateType
-        paramDataPos: 000000000000000000000000000000000100000001000000020000000500000003000000040000000000000000000000050000000000000009000000010000000d0000001100000012000000
-        paramByteDataSize: 00000000000000000000000001000000000000000400000000000000040000000000000000000000000000000000000000000000000000000400000000000000040000000100000004000000
+        paramDataPos: 0000000000000000000000000000000000000000010000000200000001000000030000000500000004000000050000000000000000000000060000000000000009000000010000000d0000001100000012000000
+        paramByteDataSize: 000000000000000000000000010000000000000000000000000000000400000000000000040000000000000000000000000000000000000000000000000000000400000000000000040000000100000004000000
     - name: Stop Charging
       description: 
       colorIndex: 0
@@ -6241,11 +6275,23 @@ MonoBehaviour:
         networkSync: 0
         value: 1
       - useVariable: 1
-        name: chargeTime
+        name: 
         tooltip: 
         showInInspector: 1
         networkSync: 0
-        value: 0.5
+        value: 0
+      - useVariable: 1
+        name: chargeTimeTemp
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
+      - useVariable: 1
+        name: dischargeTimeTemp
+        tooltip: 
+        showInInspector: 0
+        networkSync: 0
+        value: 0
       intVariables: []
       boolVariables: []
       stringVariables: []
@@ -6255,14 +6301,28 @@ MonoBehaviour:
       rectVariables: []
       quaternionVariables: []
       gameObjectVariables: []
-      objectVariables: []
+      objectVariables:
+      - useVariable: 1
+        name: chargeTime
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        typeName: _Framework.FloatVariable
+        value: {fileID: 11400000, guid: 7606577d602b04249a79675936065e8b, type: 2}
+      - useVariable: 1
+        name: dischargeTime
+        tooltip: 
+        showInInspector: 1
+        networkSync: 0
+        typeName: _Framework.FloatVariable
+        value: {fileID: 11400000, guid: 650bb929668ff42c0bd5550f3add5821, type: 2}
       materialVariables: []
       textureVariables: []
       arrayVariables: []
       enumVariables: []
       categories:
       - 
-      variableCategoryIDs: 000000000000000000000000
+      variableCategoryIDs: 00000000000000000000000000000000000000000000000000000000
     description: 
     docUrl: 
     showStateLabel: 0
