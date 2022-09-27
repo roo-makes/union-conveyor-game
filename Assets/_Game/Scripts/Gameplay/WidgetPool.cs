@@ -70,6 +70,7 @@ namespace _Game.Scripts.Gameplay
         {
             obj.SetActive(false);
             obj.transform.SetParent(transform);
+            obj.GetComponent<WidgetStateData>().Reset();
         }
 
         private void OnObjectDestroy(GameObject obj)
