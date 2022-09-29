@@ -22,7 +22,7 @@ namespace _Game.Scripts.Gameplay
         private void OnAction(InputAction.CallbackContext obj)
         {
             var action = obj.action;
-            if (action == _leftButton.action)
+            if (action.id == _leftButton.action.id)
             {
                 if (obj.started)
                 {
@@ -34,7 +34,7 @@ namespace _Game.Scripts.Gameplay
                 }
             }
 
-            if (action == _centerButton.action)
+            if (action.id == _centerButton.action.id)
             {
                 if (obj.started)
                 {
@@ -46,7 +46,7 @@ namespace _Game.Scripts.Gameplay
                 }
             }
 
-            if (action == _rightButton.action)
+            if (action.id == _rightButton.action.id)
             {
                 if (obj.started)
                 {

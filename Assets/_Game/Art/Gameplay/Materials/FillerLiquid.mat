@@ -106,7 +106,7 @@ Material:
     - _DistortTexXSpeed: 0
     - _DistortTexYSpeed: 18.5
     - _EditorDrawers: 6
-    - _FadeAmount: -0.1
+    - _FadeAmount: 0.414
     - _FadeBurnGlow: 2
     - _FadeBurnTransition: 0.075
     - _FadeBurnWidth: 0.025
@@ -119,7 +119,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 3
     - _GlitchSize: 1
-    - _Glow: 15
+    - _Glow: 3.9
     - _GlowGlobal: 1
     - _GradBlend: 1
     - _GradBoostX: 1.2
@@ -220,7 +220,7 @@ Material:
     - _ColorSwapGreen: {r: 1, g: 1, b: 1, a: 1}
     - _ColorSwapRed: {r: 1, g: 1, b: 1, a: 1}
     - _FadeBurnColor: {r: 1, g: 1, b: 0, a: 1}
-    - _GlowColor: {r: 0.051886797, g: 1, b: 0.14557391, a: 1}
+    - _GlowColor: {r: 0, g: 1, b: 0.099173546, a: 1}
     - _GradBotLeftCol: {r: 0, g: 0, b: 1, a: 1}
     - _GradBotRightCol: {r: 0, g: 1, b: 0, a: 1}
     - _GradTopLeftCol: {r: 1, g: 0, b: 0, a: 1}

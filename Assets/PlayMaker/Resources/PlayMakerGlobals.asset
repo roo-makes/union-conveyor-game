@@ -44,3 +44,4 @@ MonoBehaviour:
   - gl-sanitizerCharged
   - gl-sanitizerChargeStarted
   - gl-sanitizerChargeStopped
+  - gl-widgetChanged

@@ -7,14 +7,6 @@ namespace _Game.Scripts.Gameplay
         [SerializeField] private bool _expectSanitization;
         [SerializeField] private bool _expectFill;
         [SerializeField] private bool _expectDropper;
-
-        [SerializeField] private GameObject _testParent;
-
-        void Start()
-        {
-            Debug.Log($"Is Parent? {transform.IsChildOf(_testParent.transform)}");
-            Debug.Log($"{transform.root.name}");
-        }
         
         public bool GradeWidget(GameObject widget)
         {

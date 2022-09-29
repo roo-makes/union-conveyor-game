@@ -12,6 +12,8 @@ namespace _Game.Scripts.Gameplay
 
         [SerializeField] private UnityEvent WidgetReset;
         [SerializeField] private UnityEvent WidgetSanitized;
+        [SerializeField] private UnityEvent WidgetStartFill;
+        [SerializeField] private UnityEvent WidgetFilled;
 
         public bool IsFilled => FillPercent >= 1;
         public bool IsDosed => _isDosed;
@@ -38,7 +40,11 @@ namespace _Game.Scripts.Gameplay
 
         public void AddFill(float amount)
         {
+            if (FillPercent == 0f && amount > 0f) WidgetStartFill.Invoke();
+
             FillPercent += amount;
+            
+            if (IsFilled) WidgetFilled.Invoke();
         }
     }
 }
