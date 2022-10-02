@@ -47,3 +47,5 @@ MonoBehaviour:
   - gl-widgetChanged
   - gl-widgetFilled
   - gl-dropperDrop
+  - gl-widgetSucceeded
+  - gl-widgetFailed
