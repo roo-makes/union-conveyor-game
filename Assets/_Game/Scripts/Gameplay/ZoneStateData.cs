@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,12 @@ namespace _Game.Scripts.Gameplay
         public bool ContainsWidget(GameObject widget)
         {
             return _widgetsInZone.Contains(widget);
+        }
+        
+        public GameObject GetNextWidgetForPredicate(Predicate<GameObject> findFunc)
+        {
+            if (IsZoneEmpty) return null;
+            return Widgets.Find(findFunc);
         }
     }
 }

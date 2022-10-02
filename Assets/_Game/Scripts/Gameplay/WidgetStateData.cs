@@ -6,26 +6,33 @@ namespace _Game.Scripts.Gameplay
 {
     public class WidgetStateData : MonoBehaviour
     {
-        private bool _isFilled = false;
-        private bool _isDosed = false;
+        [SerializeField] private bool _needsSanitization;
+        [SerializeField] private bool _needsFilling;
+        [SerializeField] private int _dropsNeeded;
+        
         private bool _isSanitized = false;
+        private int _numDrops = 0;
+        private float _fillPercent;
 
         [SerializeField] private UnityEvent WidgetReset;
         [SerializeField] private UnityEvent WidgetSanitized;
         [SerializeField] private UnityEvent WidgetStartFill;
         [SerializeField] private UnityEvent WidgetFilled;
-
+        [SerializeField] private UnityEvent<int> WidgetDrop;
+        [SerializeField] private UnityEvent WidgetDroppered;
+        
         public bool IsFilled => FillPercent >= 1;
-        public bool IsDosed => _isDosed;
         public bool IsSanitized => _isSanitized;
-        public float FillPercent { get; set; }
+        public float FillPercent => _fillPercent;
+        public int NumDrops => _numDrops;
+        public int TotalDrops => _dropsNeeded;
+        public bool IsDroppered => NumDrops == TotalDrops;
 
         public void Reset()
         {
-            _isFilled = false;
-            _isDosed = false;
-            _isSanitized = false;
-            FillPercent = 0f;
+            _isSanitized = !_needsSanitization;
+            _fillPercent = _needsFilling ? 0f : 1f;
+            _numDrops = 0;
             WidgetReset.Invoke();
         }
 
@@ -42,9 +49,21 @@ namespace _Game.Scripts.Gameplay
         {
             if (FillPercent == 0f && amount > 0f) WidgetStartFill.Invoke();
 
-            FillPercent += amount;
+            _fillPercent += amount;
             
             if (IsFilled) WidgetFilled.Invoke();
+        }
+
+        public void AddDrop()
+        {
+            if (NumDrops >= TotalDrops) return;
+
+            _numDrops++;
+
+            WidgetDrop.Invoke(NumDrops);
+            if(NumDrops == TotalDrops) {
+                WidgetDroppered.Invoke();
+            }
         }
     }
 }

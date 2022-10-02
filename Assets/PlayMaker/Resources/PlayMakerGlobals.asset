@@ -46,3 +46,4 @@ MonoBehaviour:
   - gl-sanitizerChargeStopped
   - gl-widgetChanged
   - gl-widgetFilled
+  - gl-dropperDrop

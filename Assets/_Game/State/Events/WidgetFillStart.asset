@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14b5851f5704ae191f385668e5d3186, type: 3}
-  m_Name: ConveyorSpeed
+  m_Script: {fileID: 11500000, guid: 6bec8652cca448c3a07fd5a6888b9d1d, type: 3}
+  m_Name: WidgetFillStart
   m_EditorClassIdentifier: 
-  Value: 0.92

@@ -9,11 +9,7 @@ namespace _Game.Scripts.Gameplay
 
         public void FillWidgetFrame(WidgetStateData widgetState)
         {
-            var fillAmount = Time.deltaTime / _fillTime.Value;
-            
-            Debug.Log($"Fill {fillAmount}");
             widgetState.AddFill(Time.deltaTime / _fillTime.Value);
-            Debug.Log($"Filled {widgetState.FillPercent}");
         }
     }
 }
