@@ -12,8 +12,6 @@ namespace _Framework
         [Button("Fire Event")]
         public void Raise()
         {
-            Debug.Log($"Raising Event {this.name}");
-            
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
                 listeners[i].OnEventRaised();
