@@ -17,6 +17,7 @@ COMMENT: Open with YOU entering the facility, walking up to your spot on the con
 BOSS: Hey Carol, get up here.
 
 COMMENT: YOU walk up to the BOSS's office.
+TRIGGER: carol_goto_office
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 BOSS: And don’t mention anything about our 10 percent discount at the restaurant downstairs. BOSS: Those guys will lower it to 5 percent if anyone but the bigwigs like us use it. 

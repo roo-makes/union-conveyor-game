@@ -215,6 +215,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "ca5c39a5-f845-498e-b471-eef9bb31ccdc",
+            "actions": [
+                {
+                    "name": "Skip To Next Dialog",
+                    "type": "Button",
+                    "id": "15042d17-76fd-407e-a8b5-34063274c526",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dc6c8d2e-a55e-4679-872c-478ab599d2c7",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Skip To Next Dialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
