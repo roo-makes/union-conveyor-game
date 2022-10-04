@@ -30,30 +30,29 @@ namespace _Game.Scripts.Gameplay
 
         void Start()
         {
-            OnSpawnRateChange(_spawnRate.Value);
+            _delayYield = new WaitForSeconds(_spawnRate.Value);
             _runningCoroutine = StartCoroutine(SpawnerCoroutine());
         }
 
         void OnDisable()
         {
-            StopCoroutine(_runningCoroutine);
             _spawnRate.OnChange -= OnSpawnRateChange;
         }
 
         private void OnSpawnRateChange(float value)
         {
+            StopCoroutine(_runningCoroutine);
             _delayYield = new WaitForSeconds(value);
+            _runningCoroutine = StartCoroutine(SpawnerCoroutine());
         }
 
         IEnumerator SpawnerCoroutine()
         {
             while (true)
             {
-                yield return new WaitUntil(() => _spawningActive);
-                
-                SpawnWidget();                
-
                 yield return _delayYield;
+                yield return new WaitUntil(() => _spawningActive);
+                SpawnWidget();
             }
         }
 

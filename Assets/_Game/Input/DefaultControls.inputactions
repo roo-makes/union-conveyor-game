@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option 1",
+                    "name": "Option L",
                     "type": "Button",
                     "id": "57625b39-ef24-4e72-a029-f641e9c49570",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option 2",
+                    "name": "Option R",
                     "type": "Button",
                     "id": "be52569e-812c-4b38-a34c-c59a8b0f04de",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option 3",
+                    "name": "Option U",
                     "type": "Button",
                     "id": "698c8206-3b96-42e1-95a2-a5d2689f965d",
                     "expectedControlType": "Button",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Option 4",
+                    "name": "Option D",
                     "type": "Button",
                     "id": "46bcd177-4a18-4b43-8685-fcc4c07ebb8d",
                     "expectedControlType": "Button",
@@ -81,7 +81,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Option 1",
+                    "action": "Option L",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -92,7 +92,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Option 2",
+                    "action": "Option R",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -103,7 +103,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Option 3",
+                    "action": "Option U",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -114,7 +114,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Option 4",
+                    "action": "Option D",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

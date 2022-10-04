@@ -49,3 +49,4 @@ MonoBehaviour:
   - gl-dropperDrop
   - gl-widgetSucceeded
   - gl-widgetFailed
+  - gl-choiceHighlighted

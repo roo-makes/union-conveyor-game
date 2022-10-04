@@ -1,48 +1,54 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
 
-public class DialogManager : MonoBehaviour
+namespace _Game.Scripts.Dialog
 {
-    [SerializeField] private TextAsset _inkAsset;
-    [SerializeField] private TextMeshProUGUI _textBox;
-    private Story _inkStory;
-
-    public enum DialogType
+    public class DialogManager : MonoBehaviour
     {
-        Standard,
-        StageDirection,
-        Choices
-    }
+        [SerializeField] private TextAsset _inkAsset;
+        [SerializeField] private TextMeshProUGUI _textBox;
+        private Story _inkStory;
 
-    public bool CanContinue => _inkStory.canContinue;
-    public bool IsChoice => !CanContinue && _inkStory.currentChoices.Count > 0;
-    public string DialogText => _inkStory.currentText;
-    public 
+        public enum DialogType
+        {
+            Standard,
+            StageDirection,
+            Choices
+        }
 
-    void Awake()
-    {
-        _inkStory = new Story(_inkAsset.text);
-    }
+        public bool CanContinue => _inkStory.canContinue;
+        public bool IsChoice => !CanContinue && _inkStory.currentChoices.Count > 0;
+        public string DialogText => _inkStory.currentText.Trim();
+        public List<Choice> CurrentChoices => IsChoice ? _inkStory.currentChoices : new List<Choice>();
+        public DialogType CurrentDialogType => IsChoice ? DialogType.Choices : DialogType.Standard;
 
-    public void Advance()
-    {
-        if (CanContinue) _inkStory.Continue();
-    }
+        void Awake()
+        {
+            _inkStory = new Story(_inkAsset.text);
+        }
+
+        public void Advance()
+        {
+            if (CanContinue) _inkStory.Continue();
+            if(DialogText.StartsWith("COMMENT:")) Advance();
+        }
     
-    
+        public string GetCurrentDialogText()
+        {
+            return DialogText;
+        }
 
-    public string GetNextStoryText()
-    {
-        return _inkStory.Continue();
-    }
+        public void ChooseChoiceIndex(int index)
+        {
+            _inkStory.ChooseChoiceIndex(index);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
     }
 }

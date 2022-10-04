@@ -9,24 +9,28 @@ namespace _Framework
     [CreateAssetMenu(fileName = "FloatVariable", menuName = "Framework/FloatVariable")]
     public class FloatVariable : ScriptableObject
     {
-        [OnValueChanged("ValueChanged")]
-        public float Value;
+        [HideInInspector] [SerializeField] private float _value;
         public event Action<float> OnChange;
+
+        [ShowInInspector]
+        public float Value
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+                ValueChanged();
+            }
+        }
 
         public override string ToString()
         {
             return Value.ToString();
         }
 
-        public void SetValue(float newVal)
-        {
-            Value = newVal;
-            ValueChanged();
-        }
-
         public void ValueChanged()
         {
-            OnChange.Invoke(Value);
+            OnChange?.Invoke(Value);
         }
     }
 }
