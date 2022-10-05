@@ -7861,10 +7861,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 575766434724242657, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1194055648404171805, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7915,26 +7911,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1710769918752875639, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891007902106530632, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: fsm.variables.objectVariables.Array.data[2].value
-      value: 
-      objectReference: {fileID: 8300000, guid: 0faee5ce79f9b4d3eb8c233223259b17, type: 3}
-    - target: {fileID: 6261096740329149715, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132995532157662732, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132995532157662732, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8132995532157662732, guid: 9463133cb73ca41b1a088d4e9d052479, type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
