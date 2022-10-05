@@ -23,9 +23,7 @@ TRIGGER: carol_goto_office
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 
-BOSS: And don’t mention anything about our 10 percent discount at the restaurant downstairs.
-
-BOSS: Those guys will lower it to 5 percent if anyone but the bigwigs like us use it. 
+BOSS: And don’t mention anything about our 10 percent discount at the restaurant downstairs. Those guys will lower it to 5 percent if anyone but the bigwigs like us use it. 
   * [OK] YOU: OK
     BOSS: Great. Knew I could count on you.
   * [Don't tell about the donut place] YOU: And don't forget, that's true of the donut place across the street too. She can never know.

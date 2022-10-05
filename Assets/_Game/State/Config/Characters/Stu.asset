@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: STU
   IsPlayer: 0
-  CharacterIconColor: {r: 0.45882356, g: 0.23137257, b: 0.019607844, a: 0}
+  CharacterIconColor: {r: 0.45882356, g: 0.23137257, b: 0.019607844, a: 1}
   CharacterIconMaterial: {fileID: 0}
   CharacterPortrait: {fileID: 21300000, guid: f61f1198df5d041a69363a41e0865ec1, type: 3}
   CharacterPortraitMaterial: {fileID: 0}
