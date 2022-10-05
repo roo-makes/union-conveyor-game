@@ -23,15 +23,15 @@ TRIGGER: carol_goto_office
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 
-BOSS: And don’t mention anything about our 10 percent discount at the restaurant downstairs. Those guys will lower it to 5 percent if anyone but the bigwigs like us use it. 
-  * [OK] YOU: OK
-    BOSS: Great. Knew I could count on you.
-  * [Don't tell about the donut place] YOU: And don't forget, that's true of the donut place across the street too. She can never know.
-    BOSS: I’ve always said you’ve got the spirit of a master conveyor. I’d better watch out or you’re gonna be in my seat soon *heh heh*
+BOSS: And don’t mention our discount at the diner downstairs. Those jokers will snatch it away if anyone but the bigwigs like us use it.
+
+  * [Don't tell about other discount] YOU: And don't forget about our discount on nutritional gruel across the street. She can never know.
     ~ boss_opinion += 1
   * [I can't do that] YOU: I can't do that and you know it.
         BOSS: Whatever. You think cause you’ve been here 12 years you can talk to me however you want. Maybe Edna’ll be my new favorite.
     ~ boss_opinion -= 1
+  * [OK] YOU: OK
+    BOSS: Great. Knew I could count on you.
 - BOSS: Anyway should be an easy day. Business is slow. *Sighs* That’s all.
 
 COMMENT: You walk back down to your conveyor spot.
@@ -52,8 +52,8 @@ YOU: It's not right now, but the boss is always changing things up on us. I'll h
 
 EDNA: A new contract? For what?
 
-YOU: Honestly, I have no idea. Materials come down the conveyor, we push buttons, and the machines do their thing. 
-YOU: The product goes into the chute at the end, to god knows where. Sometimes the boss says "we've got a new contract" and the machine is different, or you use more than one machine. 
+YOU: Materials come down the conveyor, we push buttons, and the machines do their thing. Today it looks like some kind of viscous red fluid. They're telling us it's toothpaste but I doubt it.
+YOU: You fill the tube. It  goes into the chute at the end, to god knows where. Sometimes the boss says "we've got a new contract" and they change things up. 
 
 EDNA: That sounds both boring and mysterious.
 
@@ -79,8 +79,6 @@ YOU: Yeah. Well, it's a little harder when you're trying to have a conversation 
 
 YOU: Make sure to keep the work going while you listen and decide what to say. If you don't hit your quota for the day, you'll get a demerit or even get fired if you're bad enough. 
 
-YOU: If you take too long to answer people, they'll get bored and wander away. 
-
 -> edna_training.after_chatless_tutorial
 
 = after_chatless_tutorial
@@ -92,6 +90,7 @@ EDNA: Do you think anyone will mind?
 -> conveyor_and_chat_tutorial
 * [People might be offended.] YOU: People might be offended. 
 EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
+-> conveyor_and_chat_tutorial
 
 = conveyor_and_chat_tutorial
 YOU: TESTING DOES THIS NOT BREAK
@@ -125,7 +124,7 @@ EDNA: Oh, I had no idea, thanks!
 
 * [Stay at the belt.] Make sure to stay at the belt at all times.
 ~boss_opinion +=1 
-~labor_unrest +=1 
+~labor_unrest -=1 
 
 EDNA: Damn, this place is strict. 
 
@@ -135,7 +134,7 @@ EDNA: We get breaks?
 
   *  * Well, technically, but it's really not best to actually take them.
 ~edna_opinion -= 1
-~labor_unrest += 1
+~labor_unrest -= 1
 ~boss_opinion += 1 
 EDNA: Wow, super strict.
     ** [Yes! Can't believe they slipped my mind.] YOU: Yes! Can't believe they slipped my mind.
@@ -188,19 +187,23 @@ DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to g
 
 ==damien_goes_over==
 COMMENT: Damien talks to Edna, and you see that they're conversing but not what they're saying.
+DAMIEN: ...
+EDNA: ...
+
 { 
     -avoid_edna: 
-    Edna saw that Damien started the conversation after talking to you and glares at you. 
+    EDNA: Carol, I thought you were going to tell people to leave me alone. 
     ~edna_opinion -=1  
     }
 Damien breaks off the conversation awkwardly.
 DAMIEN: Great to meet you!
-Edna is silent, looking at her work.
+EDNA: ...
 
 -> helena_day_1 
 
 ==damien_desists==
-COMMENT:Damien walks back to his conveyor, and periodically glances over at Edna.
+COMMENT:Damien does not speak to Edna.
+DAMIEN: Nobody gives me a chance...
 {
     -avoid_edna: 
     Edna gathers that you helped deflect Damien from her and gives you a slight smile.
@@ -259,6 +262,83 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     HELENA: You're right - as fun as it would be, yelling at the boss wouldn't do much right now.
     ~labor_unrest +=1 
     - HELENA: OK, back to work. Recruiting people, that is.
+    
+    ->meet_stu
+    
+    ==meet_stu==
+    STU: Hey.
+    YOU: What, you want to date the new girl too?
+    STU: What?
+    * [Sorry] YOU: Sorry, I hate training people, kinda on edge.
+    STU: Oh, I get it, don't worry. Glad we're getting some help with this "toothpaste" order though.
+        **[It smells evil] YOU: That stuff smells like it came straight out of hell. 
+        STU: I bet it did. Or at least out of a butt.
+        YOU: Speaking of which, I've had to go since the whistle blew. 
+        STU: We go in our pants here. That's the Convei way. 
+        ->meet_stu.bathroom
+        **[What do we make?]  YOU: Edna asked about what we make. Felt kind of silly saying I have no idea.
+        STU: Hey, unless knowing what we make comes with a raise, I don't really care. 
+        YOU: Yeah, knowing too much could lead to a subpoena too, the way this place runs. 
+        STU: Boss is always so twitchy and suspicious. The owners must have him on a short leash. Whoever they are.
+            *** [No bathroom breaks sucks] YOU: I wonder which of them came up with this ridiculous "no bathroom break" policy.
+            ~labor_unrest +=1 
+            STU: Probably a joint effort, at the same meeting where they decided we don't need sick leave.
+            YOU: Hopefully no one is eating this stuff right out of the tube after we cough in it.
+            -> meet_stu.bathroom
+            *** [Bond with Stu] YOU: Hey, we've both been here the longest of anyone. We'll probably outlast a dozen more bosses.
+            STU: Now that's truly dark, Carol.
+            
+            *** [Must be doing something right] YOU: Hey, the company seems successful, they must be doing something right.
+        STU: Ew, come on Carol. 
+        ~stu_opinion -=1 
+        ~labor_unrest -=1 
+        - YOU: Anyway, <> ->meet_stu.bathroom
+        **[Love to fill tubes] YOU: Who doesn't love filling a tube with a strange substance?
+        STU: We're living the dream here Carol. The wife and kids and I are going to Greece in a month though - I don't know how I'll deal with being away from the conveyor. 
+            YOU: Are you allowed to use the bathroom in Greece?
+            STU: Yeah, in that sense it might be nicer. But you have to ask in Greek. Here you don't need to ask at all, cause it's not happening anyway. 
+            *** [We could change that] -> meet_stu.bathroom 
+    * [Everyone's fascinated with Edna] YOU: Everyone's fascinated with Edna, huh?
+        STU: And what, you think I'm like Damien?
+        **[No, but...] YOU: No, but considering how boring it is here people can get obsessed with a fresh face. 
+        ~stu_opinion +=1
+            STU: Listen, I'm a happily married man. I just want to pack this battery acid crap into tubes so people can put it on their toast or whatever the hell happens after it leaves this place.
+            YOU: Our customers disgust me, whoever they are.
+            ->meet_stu.bathroom
+        ** [He's persuasive] YOU: Well, apparently he has a large following online. 
+        ~stu_opinion -=1
+        STU: Yeah, and that is truly scary. You think he got me?
+            *** [Never!] YOU: No way, you'd never go for that crap.
+            ~stu_opinion +=1 
+            STU: Thanks Carol. 
+            YOU: Speaking of crap...
+            **** [Fight for bathroom rights]
+            ->meet_stu.bathroom
+            **** [Leave it alone]
+            ->meet_stu.bye
+    * [Never mind.]YOU: Never mind. 
+    ->meet_stu.bye
+    
+    =bathroom
+    YOU: We could try standing up for our right to pee. 
+            ~labor_unrest += 1
+            STU: Sure, I bet the BOSS will find it funny at least.
+            YOU: More likely he'll be pissed, but I don't really care.
+            STU: Funny. But this is just a job. I keep myself good and dehydrated during the day, then I go home to my lovely wife and toilet and kids. 
+            * [Apathy is embarrassing] YOU: Stu, that kind of apathy is just embarrassing. 
+            ~stu_opinion -=1
+            ~labor_unrest+=1 
+            * [Can't let them walk over us] YOU: They're treating us like shit, Stu, and it's just cause they think they can get away with it.
+            ~labor_unrest +=1
+            * [Fair enough.] YOU: Fair enough.
+            ~labor_unrest -=1 
+            - -> meet_stu.bye
+    
+    =bye
+    STU: Well, I'm getting a bit behind on my cylinders here. Talk to you later Carol.
+    
+    ->DONE
+    
     -> edna_disappears
     
 ==edna_disappears==
