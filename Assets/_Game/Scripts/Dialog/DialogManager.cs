@@ -15,6 +15,7 @@ namespace _Game.Scripts.Dialog
         private Story _inkStory;
         private Dictionary<string, CharacterSO> _charactersDict;
         private CharacterSO _playerCharacter;
+        private PlayMakerFSM _fsm;
 
         public enum DialogType
         {
@@ -68,6 +69,7 @@ namespace _Game.Scripts.Dialog
 
         void Awake()
         {
+            _fsm = GetComponent<PlayMakerFSM>();
             _inkStory = new Story(_inkAsset.text);
             _charactersDict = new Dictionary<string, CharacterSO>();
             foreach (var characterSO in _characters)
@@ -82,6 +84,7 @@ namespace _Game.Scripts.Dialog
         {
             if (CanContinue) _inkStory.Continue();
             if (DialogCharacter == _charactersDict["DEFAULT"]) Advance();
+            _fsm.FsmVariables.GetFsmObject("character").Value = DialogCharacter;
         }
 
         public string GetCurrentDialogText()

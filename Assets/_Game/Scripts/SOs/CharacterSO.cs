@@ -19,5 +19,9 @@ namespace _Game.Scripts
         public Sprite CharacterPortrait;
         public Material CharacterPortraitMaterial;
 
+        [Space]
+        public AudioClip CharacterVoice;
+
+        [Range(0.5f, 2f)] public float CharacterVoicePitch = 1;
     }
 }

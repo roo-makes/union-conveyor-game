@@ -62,10 +62,7 @@ YOU: It's just boring. Here, I'll show you.
 
 TRIGGER: start-conveyor 
 
-YOU: OK, so when the material arrives in this zone <>
-
-TRIGGER: highlight-center-zone
-hold down the {center_btn} button, and let go when it gets to the second line. Like this.
+YOU: OK, so when the material arrives in this zone hold down the {center_btn} button, and let go when it gets to the second line. Like this.
 
 TRIGGER: do-center-demo 
 
@@ -87,18 +84,11 @@ YOU: If you take too long to answer people, they'll get bored and wander away.
 
 EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more chatter. 
 
-->conveyor_and_chat_tutorial
-
-=== conveyor_and_chat_tutorial ===
-
-COMMENT: Conveyor continues during dialog so player can try out doing both at once
-
 * [Whatever works for you] YOU: Well, whatever works for you.
 EDNA: Do you think anyone will mind?
 -> conveyor_and_chat_tutorial
 * [People might be offended.] YOU: People might be offended. 
 EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
-
 
 
 ** [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.

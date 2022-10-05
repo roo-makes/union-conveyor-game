@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cb43db2efc486bbe0a8a4a610d63c8, type: 3}
-  m_Name: Carol
+  m_Name: Stu
   m_EditorClassIdentifier: 
-  Name: CAROL
-  IsPlayer: 1
-  CharacterIconColor: {r: 0.5686275, g: 0.7019608, b: 0.49803925, a: 0}
+  Name: STU
+  IsPlayer: 0
+  CharacterIconColor: {r: 0.45882356, g: 0.23137257, b: 0.019607844, a: 0}
   CharacterIconMaterial: {fileID: 0}
-  CharacterPortrait: {fileID: 21300000, guid: 33202acc254654eb5989813d83eae57e, type: 3}
+  CharacterPortrait: {fileID: 21300000, guid: f61f1198df5d041a69363a41e0865ec1, type: 3}
   CharacterPortraitMaterial: {fileID: 0}
-  CharacterVoice: {fileID: 8300000, guid: 0faee5ce79f9b4d3eb8c233223259b17, type: 3}
+  CharacterVoice: {fileID: 8300000, guid: 06f6b4759f2d647bf99512cddd960339, type: 3}
   CharacterVoicePitch: 1

@@ -50,3 +50,5 @@ MonoBehaviour:
   - gl-widgetSucceeded
   - gl-widgetFailed
   - gl-choiceHighlighted
+  - gl-dialogProseAllTyped
+  - gl-dialogChoiceTimeout
