@@ -23,17 +23,15 @@ TRIGGER: carol_goto_office
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 
-BOSS: And don’t mention anything about our 10 percent discount at the restaurant downstairs.
+BOSS: And don’t mention our discount at the diner downstairs. Those jokers will snatch it away if anyone but the bigwigs like us use it.
 
-BOSS: Those guys will lower it to 5 percent if anyone but the bigwigs like us use it. 
-  * [OK] YOU: OK
-    BOSS: Great. Knew I could count on you.
-  * [Don't tell about the donut place] YOU: And don't forget, that's true of the donut place across the street too. She can never know.
-    BOSS: I’ve always said you’ve got the spirit of a master conveyor. I’d better watch out or you’re gonna be in my seat soon *heh heh*
+  * [Don't tell about other discount] YOU: And don't forget about our discount on nutritional gruel across the street. She can never know.
     ~ boss_opinion += 1
   * [I can't do that] YOU: I can't do that and you know it.
         BOSS: Whatever. You think cause you’ve been here 12 years you can talk to me however you want. Maybe Edna’ll be my new favorite.
     ~ boss_opinion -= 1
+  * [OK] YOU: OK
+    BOSS: Great. Knew I could count on you.
 - BOSS: Anyway should be an easy day. Business is slow. *Sighs* That’s all.
 
 COMMENT: You walk back down to your conveyor spot.
@@ -54,8 +52,8 @@ YOU: It's not right now, but the boss is always changing things up on us. I'll h
 
 EDNA: A new contract? For what?
 
-YOU: Honestly, I have no idea. Materials come down the conveyor, we push buttons, and the machines do their thing. 
-YOU: The product goes into the chute at the end, to god knows where. Sometimes the boss says "we've got a new contract" and the machine is different, or you use more than one machine. 
+YOU: Materials come down the conveyor, we push buttons, and the machines do their thing. Today it looks like some kind of viscous red fluid. They're telling us it's toothpaste but I doubt it.
+YOU: You fill the tube. It  goes into the chute at the end, to god knows where. Sometimes the boss says "we've got a new contract" and they change things up. 
 
 EDNA: That sounds both boring and mysterious.
 
@@ -80,8 +78,6 @@ EDNA: Oh my god.
 YOU: Yeah. Well, it's a little harder when you're trying to have a conversation at the same time. Since the work is so tedious, people here love to chat. 
 
 YOU: Make sure to keep the work going while you listen and decide what to say. If you don't hit your quota for the day, you'll get a demerit or even get fired if you're bad enough. 
-
-YOU: If you take too long to answer people, they'll get bored and wander away. 
 
 -> edna_training.after_chatless_tutorial
 
