@@ -85,11 +85,27 @@ YOU: Make sure to keep the work going while you listen and decide what to say. I
 
 EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more chatter. 
 
-* [Whatever works for you] YOU: Well, whatever works for you.
-EDNA: Do you think anyone will mind?
--> conveyor_and_chat_tutorial
+*[That's a lot] YOU: That's a lot of siblings. 
+EDNA: Yeah, I'm kind of forced to take care of them. I hate it.
+    ** [Sucks being here] YOU: If it resulted in you working here, it must be pretty bad.
+    ~labor_unrest += 1
+        EDNA: I can't argue with that.
+         ->conveyor_and_chat_tutorial
+    
+    ** [At least you're used to chatter] YOU: At least you're use to people talking constantly. You'll fit in.
+    EDNA: This doesn't bode well.
+    ~edna_opinion +=1 
+     ->conveyor_and_chat_tutorial
+    ** [Yikes] YOU: Yikes.
+    EDNA: Yeah.
+    ->conveyor_and_chat_tutorial
+
 * [People might be offended.] YOU: People might be offended. 
 EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
+-> conveyor_and_chat_tutorial
+
+* [Whatever works for you] YOU: Well, whatever works for you.
+EDNA: Do you think anyone will mind?
 -> conveyor_and_chat_tutorial
 
 = conveyor_and_chat_tutorial
@@ -116,7 +132,7 @@ TRIGGER:sfx_start_whistle
 
 YOU: Alright, that's our sign to start for real. 
 
-* Don't forget, you get breaks at noon and 3pm. 
+* [We get a discount downstairs] YOU: Don't forget, we get a very small discount at the diner downstairs. 
 EDNA: Oh, I had no idea, thanks!
 ~edna_opinion += 1
 
@@ -128,16 +144,17 @@ EDNA: Oh, I had no idea, thanks!
 
 EDNA: Damn, this place is strict. 
 
-CHARLES, while passing by: Well, there's break time too! 
+SID: Don't forget to tell our new employee about the discount downstairs! 
 
-EDNA: We get breaks?
+EDNA: We get a discount where?
+** [Not great discount but sure] YOU: They make a huge deal about it, but it's a tiny discount. Go ahead and use it though. And there's one for the hip nutri gruel place.
 
-  *  * Well, technically, but it's really not best to actually take them.
+  *  * [Don't use it] YOU: Well, technically, but they don't really like it when you use it. They get mad.
 ~edna_opinion -= 1
 ~labor_unrest -= 1
 ~boss_opinion += 1 
-EDNA: Wow, super strict.
-    ** [Yes! Can't believe they slipped my mind.] YOU: Yes! Can't believe they slipped my mind.
+EDNA: Wow, that's so stupid.
+    ** [Yes! Can't believe that slipped my mind.] YOU: Yes! Can't believe that slipped my mind.
     EDNA: OK, well. Thanks. I guess I'll get started. 
     
     
@@ -145,7 +162,7 @@ EDNA: Wow, super strict.
 -> damien_day1
 
 == damien_day1 ==
-It's 11am.
+COMMENT: It's 11am.
 
 DAMIEN: You're training the new girl?
 
@@ -153,14 +170,16 @@ YOU: Yeah, didn't take much.
 
 DAMIEN: What's she like?
 
-* Weird
+* [Weird] YOU: Weird
 DAMIEN: Wow, very descriptive. Do you think she'll be my friend?
 
-* Nice, but pretty shy. Don't worry if she doesn't talk too much.
+* [Nice but shy] YOU: Nice, but pretty shy. Don't worry if she doesn't talk too much.
 DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to get home to my empty apartment. I wouldn't say a word for days if it wasn't for talking to you all. And talking to myself. Do you think she'll be my friend?
+* [Don't know] You: I didn't get to know much about her.
+DAMIEN: I bet she wants to talk to me. I should talk to her.
 -
     ** I really don't think so. She seems to have her own stuff going on.
-
+~damien_opinion -=1 
     DAMIEN: If the boss didn't keep making us work late, maybe I could make some friends outside of work. Or get a date. According to my timeline, I'm supposed to be engaged next year to have three kids on schedule.
     
     ***I'm too old to have your three kids Damien. Don't bother.
@@ -183,6 +202,8 @@ DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to g
     ~damien_opinion += 1 
     ->damien_goes_over
     
+    ** Do whatever you want Damien.
+    ->damien_goes_over
 
 
 ==damien_goes_over==
@@ -287,12 +308,13 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             -> meet_stu.bathroom
             *** [Bond with Stu] YOU: Hey, we've both been here the longest of anyone. We'll probably outlast a dozen more bosses.
             STU: Now that's truly dark, Carol.
+             YOU: Anyway, <> ->meet_stu.bathroom
             
             *** [Must be doing something right] YOU: Hey, the company seems successful, they must be doing something right.
         STU: Ew, come on Carol. 
         ~stu_opinion -=1 
         ~labor_unrest -=1 
-        - YOU: Anyway, <> ->meet_stu.bathroom
+        YOU: Anyway, <> ->meet_stu.bathroom
         **[Love to fill tubes] YOU: Who doesn't love filling a tube with a strange substance?
         STU: We're living the dream here Carol. The wife and kids and I are going to Greece in a month though - I don't know how I'll deal with being away from the conveyor. 
             YOU: Are you allowed to use the bathroom in Greece?
@@ -336,8 +358,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     
     =bye
     STU: Well, I'm getting a bit behind on my cylinders here. Talk to you later Carol.
-    
-    ->DONE
+
     
     -> edna_disappears
     
@@ -363,7 +384,7 @@ YOU: Edna's going to be really late to get her brother.
 * [Whatever.] YOU: Whatever.
 -> edna_disappears.leave
 =wait
-YOU:  You wait. #italics
+YOU:  Where is she?
 COMMENT: More time passes, and everyone else is gone. The light in the boss's office is still on.
 YOU: Goddamnit, I can't stay here all night.
 ->day1_end
