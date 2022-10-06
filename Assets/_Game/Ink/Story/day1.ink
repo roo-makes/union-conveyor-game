@@ -10,15 +10,14 @@ VAR left_btn = "z"
 VAR right_btn = "c"
 VAR big_btn = "space"
 
-EXTERNAL asyncTrigger(triggerName)
-EXTERNAL syncTrigger(triggerName)
-
 -> day_1_intro
 
 === day_1_intro ===
 COMMENT: Open with YOU entering the facility, walking up to your spot on the conveyor. EDNA is in the spot next to you.
 
-BOSS: Hey Carol, get over here. {asyncTrigger("carol-goto-boss")}
+TRIGGER_ASYNC: carol-goto-boss
+
+BOSS: Hey Carol, get over here.
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 
@@ -33,7 +32,7 @@ BOSS: And don’t mention our discount at the diner downstairs. Those jokers wil
     BOSS: Great. Knew I could count on you.
 - BOSS: Anyway should be an easy day. Business is slow. *Sighs* That’s all.
 
-TRIGGER: {syncTrigger("carol-goto-conveyor")}
+TRIGGER_SYNC: carol-goto-conveyor
 
     -> edna_training
 
@@ -56,7 +55,9 @@ YOU: You fill the tube. It  goes into the chute at the end, to god knows where. 
 
 EDNA: That sounds both boring and mysterious.
 
-YOU: It's just boring. Here, I'll show you. {syncTrigger("conveyor-tutorial-start-until-in-zone")}
+YOU: It's just boring. Here, I'll show you.
+
+TRIGGER_SYNC: player-conveyor-demo-start
 
 -> edna_training.start_chatless_tutorial
 
@@ -64,7 +65,7 @@ YOU: It's just boring. Here, I'll show you. {syncTrigger("conveyor-tutorial-star
 
 YOU: OK, so when the material arrives in this zone hold down the {center_btn} button, and let go when it gets to the second line. Like this.
 
-TRIGGER: do-center-demo 
+TRIGGER_ASYNC: player-conveyor-demo-fill
 
 EDNA: Then what?
 
@@ -106,7 +107,6 @@ EDNA: Do you think anyone will mind?
 -> conveyor_and_chat_tutorial
 
 = conveyor_and_chat_tutorial
-YOU: TESTING DOES THIS NOT BREAK
 
 ** [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
 EDNA: Thanks!
@@ -125,7 +125,7 @@ EDNA: Thanks!
 - EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. That seems ok, right? 
 YOU: That should be fine. Just go talk to the boss before the end of the day.
 
-TRIGGER:sfx_start_whistle 
+TRIGGER_ASYNC: start-day
 
 YOU: Alright, that's our sign to start for real. 
 
@@ -153,11 +153,10 @@ EDNA: We get a discount where?
 EDNA: Wow, that's so stupid.
     ** [Yes! Can't believe that slipped my mind.] YOU: Yes! Can't believe that slipped my mind.
     EDNA: OK, well. Thanks. I guess I'll get started. 
-    
-    
-- COMMENT: Work day begins.
--> DONE
 
+-> DONE
+    
+    
 == damien_day1 ==
 COMMENT: It's 11am.
 
