@@ -1,3 +1,4 @@
+INCLUDE final_day
 VAR boss_opinion = 5
 VAR edna_opinion = 5
 VAR labor_unrest = 0
@@ -83,59 +84,59 @@ YOU: Make sure to keep the work going while you listen and decide what to say. I
 
 EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more chatter. 
 
-*[That's a lot] YOU: That's a lot of siblings. 
-EDNA: Yeah, I'm kind of forced to take care of them. I hate it.
-    ** [Sucks being here] YOU: If it resulted in you working here, it must be pretty bad.
-    ~labor_unrest += 1
+    *[That's a lot] YOU: That's a lot of siblings. 
+    EDNA: Yeah, I'm kind of forced to take care of them. I hate it.
+        ** [Sucks being here] YOU: If it resulted in you working here, it must be pretty bad.
+        ~labor_unrest += 1
         EDNA: I can't argue with that.
          ->conveyor_and_chat_tutorial
     
-    ** [At least you're used to chatter] YOU: At least you're use to people talking constantly. You'll fit in.
-    EDNA: This doesn't bode well.
-    ~edna_opinion +=1 
+        ** [At least you're used to chatter] YOU: At least you're use to people talking constantly. You'll fit in.
+        EDNA: This doesn't bode well.
+        ~edna_opinion +=1 
      ->conveyor_and_chat_tutorial
-    ** [Yikes] YOU: Yikes.
-    EDNA: Yeah.
+        ** [Yikes] YOU: Yikes.
+        EDNA: Yeah.
     ->conveyor_and_chat_tutorial
 
-* [People might be offended.] YOU: People might be offended. 
-EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
--> conveyor_and_chat_tutorial
+    * [People might be offended.] YOU: People might be offended. 
+    EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
+    -> conveyor_and_chat_tutorial
 
-* [Whatever works for you] YOU: Well, whatever works for you.
-EDNA: Do you think anyone will mind?
--> conveyor_and_chat_tutorial
+    * [Whatever works for you] YOU: Well, whatever works for you.
+    EDNA: Do you think anyone will mind?
+    -> conveyor_and_chat_tutorial
 
-= conveyor_and_chat_tutorial
+    = conveyor_and_chat_tutorial
 
-** [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
-EDNA: Thanks!
-~edna_opinion += 1
-~avoid_edna = true
-** [Got it.] YOU: Got it.
+        ** [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
+        EDNA: Thanks!
+        ~edna_opinion += 1
+        ~avoid_edna = true
+        ** [Got it.] YOU: Got it.
 
-* [Just explain yourself at least, and I'm sure everyone will understand.]YOU: Just explain yourself at least, and I'm sure everyone will understand.
-EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
-** [I'll mention to everyone that you just like to keep to yourself.] YOU: I'll mention to everyone that you just like to keep to yourself.
-EDNA: Thanks!
-~edna_opinion += 1
-~avoid_edna = true
+    * [Just explain yourself at least, and I'm sure everyone will understand.]YOU: Just explain yourself at least, and I'm sure everyone will understand.
+        EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
+        ** [I'll mention to everyone that you just like to keep to yourself.] YOU: I'll mention to everyone that you just like to keep to yourself.
+        EDNA: Thanks!
+        ~edna_opinion += 1
+        ~avoid_edna = true
 
-** [Got it.] YOU: Got it.
+        ** [Got it.] YOU: Got it.
 - EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. That seems ok, right? 
 YOU: That should be fine. Just go talk to the boss before the end of the day.
 
-TRIGGER_ASYNC: start-day
+
 
 YOU: Alright, that's our sign to start for real. 
 
-* [We get a discount downstairs] YOU: Don't forget, we get a very small discount at the diner downstairs. 
+    * [We get a discount downstairs] YOU: Don't forget, we get a very small discount at the diner downstairs. 
 EDNA: Oh, I had no idea, thanks!
 ~edna_opinion += 1
-
-* [Good luck.] YOU: Good luck.
-
-* [Stay at the belt.] Make sure to stay at the belt at all times.
+->started
+    * [Good luck.] YOU: Good luck.
+->started
+    * [Stay at the belt.] Make sure to stay at the belt at all times.
 ~boss_opinion +=1 
 ~labor_unrest -=1 
 
@@ -144,16 +145,19 @@ EDNA: Damn, this place is strict.
 SID: Don't forget to tell our new employee about the discount downstairs! 
 
 EDNA: We get a discount where?
-** [Not great discount but sure] YOU: They make a huge deal about it, but it's a tiny discount. Go ahead and use it though. And there's one for the hip nutri gruel place.
+    ** [Not great discount but sure] YOU: They make a huge deal about it, but it's a tiny discount. Go ahead and use it though. And there's one for the hip nutri gruel place.
 
-  *  * [Don't use it] YOU: Well, technically, but they don't really like it when you use it. They get mad.
+    ** [Don't use it] YOU: Well, technically, but they don't really like it when you use it. They get mad.
 ~edna_opinion -= 1
 ~labor_unrest -= 1
 ~boss_opinion += 1 
 EDNA: Wow, that's so stupid.
     ** [Yes! Can't believe that slipped my mind.] YOU: Yes! Can't believe that slipped my mind.
+    -
+    ->started
+    =started
     EDNA: OK, well. Thanks. I guess I'll get started. 
-
+TRIGGER_ASYNC: start-day
 -> DONE
     
     
@@ -166,32 +170,32 @@ YOU: Yeah, didn't take much.
 
 DAMIEN: What's she like?
 
-* [Weird] YOU: Weird
-DAMIEN: Wow, very descriptive. Do you think she'll be my friend?
+    * [Weird] YOU: Weird
+    DAMIEN: Wow, very descriptive. Do you think she'll be my friend?
 
-* [Nice but shy] YOU: Nice, but pretty shy. Don't worry if she doesn't talk too much.
-DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to get home to my empty apartment. I wouldn't say a word for days if it wasn't for talking to you all. And talking to myself. Do you think she'll be my friend?
-* [Don't know] You: I didn't get to know much about her.
-DAMIEN: I bet she wants to talk to me. I should talk to her.
+    * [Nice but shy] YOU: Nice, but pretty shy. Don't worry if she doesn't talk too much.
+    DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to get home to my empty apartment. I wouldn't say a word for days if it wasn't for talking to you all. And talking to myself. Do you think she'll be my friend?
+    * [Don't know] You: I didn't get to know much about her.
+    DAMIEN: I bet she wants to talk to me. I should talk to her.
 -
-    ** I really don't think so. She seems to have her own stuff going on.
-~damien_opinion -=1 
-    DAMIEN: If the boss didn't keep making us work late, maybe I could make some friends outside of work. Or get a date. According to my timeline, I'm supposed to be engaged next year to have three kids on schedule.
+        ** I really don't think so. She seems to have her own stuff going on.
+        ~damien_opinion -=1 
+        DAMIEN: If the boss didn't keep making us work late, maybe I could make some friends outside of work. Or get a date. According to my timeline, I'm supposed to be engaged next year to have three kids on schedule.
     
-    ***I'm too old to have your three kids Damien. Don't bother.
-    DAMIEN: Ha ha, good one Carol. But seriously. If I don't meet anyone here, I'm not going to meet anyone anywhere. I'll take my chances.
-    ->damien_goes_over
+            ***I'm too old to have your three kids Damien. Don't bother.
+            DAMIEN: Ha ha, good one Carol. But seriously. If I don't meet anyone here, I'm not going to meet anyone anywhere. I'll take my chances.
+            ->damien_goes_over
     
-    ***Have you tried getting a hobby?
-    DAMIEN: I'm pretty much a legend on the pickup artist forums. My manifesto is the most popular one left online after the media blamed that terrorist attack on us. I wouldn't want to hang out with any of the freaks from there though.
-    YOU: Damien, please leave Edna alone.
-    DAMIEN: Fine, whatever.
-    ~damien_opinion -=1 
-    ->damien_desists
+            ***Have you tried getting a hobby?
+            DAMIEN: I'm pretty much a legend on the pickup artist forums. My manifesto is the most popular one left online after the media blamed that terrorist attack on us. I wouldn't want to hang out with any of the freaks from there though.
+            YOU: Damien, please leave Edna alone.
+            DAMIEN: Fine, whatever.
+            ~damien_opinion -=1 
+            ->damien_desists
     
-    *** If that's what you're thinking about, you should definitely leave her alone. 
-    DAMIEN: You're right, folks can smell desperation. That's what they keep telling me when I try to start a conversation.
-    ->damien_desists
+            *** If that's what you're thinking about, you should definitely leave her alone. 
+            DAMIEN: You're right, folks can smell desperation. That's what they keep telling me when I try to start a conversation.
+            ->damien_desists
     
     ** Why not ask?
     DAMIEN: You're right!
@@ -212,6 +216,7 @@ EDNA: ...
     EDNA: Carol, I thought you were going to tell people to leave me alone. 
     ~edna_opinion -=1  
     }
+    
 Damien breaks off the conversation awkwardly.
 DAMIEN: Great to meet you!
 EDNA: ...
@@ -332,31 +337,36 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             YOU: Speaking of crap...
             **** [Fight for bathroom rights]
             ->meet_stu.bathroom
+            ****[Got some on your shirt] YOU: You've got some on your shirt.
+            STU: Oh, thanks for looking out!
+            ~stu_opinion +=1 
+            ->meet_stu.bye
+            
             **** [Leave it alone]
             ->meet_stu.bye
     * [Never mind.]YOU: Never mind. 
     ->meet_stu.bye
     
-    =bathroom
-    YOU: We could try standing up for our right to pee. 
-            ~labor_unrest += 1
-            STU: Sure, I bet the BOSS will find it funny at least.
-            YOU: More likely he'll be pissed, but I don't really care.
-            STU: Funny. But this is just a job. I keep myself good and dehydrated during the day, then I go home to my lovely wife and toilet and kids. 
-            * [Apathy is embarrassing] YOU: Stu, that kind of apathy is just embarrassing. 
-            ~stu_opinion -=1
-            ~labor_unrest+=1 
-            * [Can't let them walk over us] YOU: They're treating us like shit, Stu, and it's just cause they think they can get away with it.
-            ~labor_unrest +=1
-            * [Fair enough.] YOU: Fair enough.
+=bathroom
+YOU: We could try standing up for our right to pee. 
+~labor_unrest += 1
+STU: Sure, I bet the BOSS will find it funny at least.
+YOU: More likely he'll be pissed, but I don't really care.
+STU: Funny. But this is just a job. I keep myself good and dehydrated during the day, then I go home to my lovely wife and toilet and kids. 
+    * [Apathy is embarrassing] YOU: Stu, that kind of apathy is just embarrassing. 
+    ~stu_opinion -=1
+    ~labor_unrest+=1 
+    * [Can't let them walk over us] YOU: They're treating us like shit, Stu, and it's just cause they think they can get away with it.
+    ~labor_unrest +=1
+    * [Fair enough.] YOU: Fair enough.
             ~labor_unrest -=1 
             - -> meet_stu.bye
     
     =bye
     STU: Well, I'm getting a bit behind on my cylinders here. Talk to you later Carol.
-
     
-    -> DONE
+-> DONE
+    
     
 ==edna_disappears==
 EDNA: So Carol ... you think I should just go ask him, now? 
@@ -371,14 +381,15 @@ YOU: Edna hasn't left the BOSS's office yet.
 
 YOU: Edna's going to be really late to get her brother.
 
-* [Wait for her] YOU: I'll wait around and make sure everything is ok.
--> edna_disappears.wait
+    * [Wait for her] YOU: I'll wait around and make sure everything is ok.
+    -> edna_disappears.wait
 
-* [Ask tomorrow] YOU: I'll ask her what happened tomorrow.
--> edna_disappears.leave
+    * [Ask tomorrow] YOU: I'll ask her what happened tomorrow.
+    -> edna_disappears.leave
 
-* [Whatever.] YOU: Whatever.
--> edna_disappears.leave
+    * [Whatever.] YOU: Whatever.
+    -> edna_disappears.leave
+    
 =wait
 YOU:  Where is she?
 COMMENT: More time passes, and everyone else is gone. The light in the boss's office is still on.
