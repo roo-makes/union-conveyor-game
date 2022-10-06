@@ -27,7 +27,7 @@ namespace _Game.Scripts.Characters
         {
             var _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             var _textMeshPro = GetComponentInChildren<TextMeshPro>();
-            _textMeshPro.text = _character.Name;
+            _textMeshPro.text = _character.IsPlayer ? "YOU" : _character.Name;
             _spriteRenderer.color = _character.CharacterIconColor;
         }
 
@@ -35,7 +35,7 @@ namespace _Game.Scripts.Characters
         {
             if (_character != null)
             {
-                _textMeshPro.text = _character.Name;
+                _textMeshPro.text = _character.IsPlayer ? "YOU" : _character.Name;
                 _spriteRenderer.color = _character.CharacterIconColor;
                 // if (_character.CharacterIconMaterial)
                 // {

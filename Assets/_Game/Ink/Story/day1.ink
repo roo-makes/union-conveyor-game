@@ -10,16 +10,15 @@ VAR left_btn = "z"
 VAR right_btn = "c"
 VAR big_btn = "space"
 
+EXTERNAL asyncTrigger(triggerName)
+EXTERNAL syncTrigger(triggerName)
+
 -> day_1_intro
 
 === day_1_intro ===
 COMMENT: Open with YOU entering the facility, walking up to your spot on the conveyor. EDNA is in the spot next to you.
 
-BOSS: Hey Carol, get up here.
-
-COMMENT: YOU walk up to the BOSS's office.
-
-TRIGGER: carol_goto_office
+BOSS: Hey Carol, get over here. {asyncTrigger("carol-goto-boss")}
 
 BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
 
@@ -34,7 +33,7 @@ BOSS: And don’t mention our discount at the diner downstairs. Those jokers wil
     BOSS: Great. Knew I could count on you.
 - BOSS: Anyway should be an easy day. Business is slow. *Sighs* That’s all.
 
-COMMENT: You walk back down to your conveyor spot.
+TRIGGER: {syncTrigger("carol-goto-conveyor")}
 
     -> edna_training
 
@@ -57,13 +56,11 @@ YOU: You fill the tube. It  goes into the chute at the end, to god knows where. 
 
 EDNA: That sounds both boring and mysterious.
 
-YOU: It's just boring. Here, I'll show you.
+YOU: It's just boring. Here, I'll show you. {syncTrigger("conveyor-tutorial-start-until-in-zone")}
 
 -> edna_training.start_chatless_tutorial
 
 = start_chatless_tutorial
-
-TRIGGER: start-conveyor 
 
 YOU: OK, so when the material arrives in this zone hold down the {center_btn} button, and let go when it gets to the second line. Like this.
 

@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using Ink.Runtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Game.Scripts.Dialog
 {
     public class DialogManager : MonoBehaviour
     {
         [SerializeField] private TextAsset _inkAsset;
-        [SerializeField] private TextMeshProUGUI _textBox; 
+        [SerializeField] private TriggersController _triggersController;
+        
         [SerializeField] private List<CharacterSO> _characters;
-
+        [SerializeField] private UnityEvent<string> _onTrigger;
+        
         private Story _inkStory;
         private Dictionary<string, CharacterSO> _charactersDict;
         private CharacterSO _playerCharacter;
@@ -19,15 +22,12 @@ namespace _Game.Scripts.Dialog
 
         public enum DialogType
         {
-            Standard,
-            StageDirection,
+            Prose,
             Choices
         }
 
         public bool CanContinue => _inkStory.canContinue;
         public bool IsChoice => !CanContinue && _inkStory.currentChoices.Count > 0;
-
-
         public string DialogCharacterName
         {
             get
@@ -65,19 +65,30 @@ namespace _Game.Scripts.Dialog
         }
 
         public List<Choice> CurrentChoices => IsChoice ? _inkStory.currentChoices : new List<Choice>();
-        public DialogType CurrentDialogType => IsChoice ? DialogType.Choices : DialogType.Standard;
+        public DialogType CurrentDialogType => IsChoice ? DialogType.Choices : DialogType.Prose;
 
         void Awake()
         {
             _fsm = GetComponent<PlayMakerFSM>();
             _inkStory = new Story(_inkAsset.text);
+            InitCharacters();
+            InitTriggers();
+        }
+
+        void InitCharacters()
+        {
             _charactersDict = new Dictionary<string, CharacterSO>();
             foreach (var characterSO in _characters)
             {
                 _charactersDict.Add(characterSO.Name, characterSO);
             }
-
             _playerCharacter = _characters.Find(character => character.IsPlayer);
+        }
+
+        void InitTriggers()
+        {
+            _inkStory.BindExternalFunction("syncTrigger", (string triggerName) => _triggersController.ExecuteTrigger(triggerName));
+            _inkStory.BindExternalFunction("asyncTrigger", (string triggerName) => _triggersController.ExecuteTriggerAsync(triggerName));
         }
 
         public void Advance()
@@ -95,11 +106,6 @@ namespace _Game.Scripts.Dialog
         public void ChooseChoiceIndex(int index)
         {
             _inkStory.ChooseChoiceIndex(index);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
         }
     }
 }

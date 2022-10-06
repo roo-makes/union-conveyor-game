@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6797998682687566458
+--- !u!1001 &5433623025181504813
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6835804053896146992, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_text
-      value: YOU
+      value: SID
       objectReference: {fileID: 0}
     - target: {fileID: 7051520943408022378, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 11400000, guid: 30dafc3ed1ec14bedaaf4502a8e83998, type: 2}
+      objectReference: {fileID: 11400000, guid: 3609769453b16498d9ccc7105e3a1f33, type: 2}
     - target: {fileID: 7954289938051880306, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_Name
-      value: Carol
+      value: Sid
       objectReference: {fileID: 0}
     - target: {fileID: 7954289938051880307, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_RootOrder
@@ -65,15 +65,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954289938254841219, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_Color.b
-      value: 0.49803925
+      value: 0.33333334
       objectReference: {fileID: 0}
     - target: {fileID: 7954289938254841219, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_Color.g
-      value: 0.7019608
+      value: 0.2509804
       objectReference: {fileID: 0}
     - target: {fileID: 7954289938254841219, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
       propertyPath: m_Color.r
-      value: 0.5686275
+      value: 0.31764707
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab0a0fa898654bc0b36b7b02af23784, type: 3}
