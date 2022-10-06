@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08cb43db2efc486bbe0a8a4a610d63c8, type: 3}
-  m_Name: Boss
+  m_Name: Helena
   m_EditorClassIdentifier: 
-  Name: BOSS
+  Name: HELENA
   IsPlayer: 0
-  CharacterIconColor: {r: 0.6862745, g: 0.27058825, b: 0.21176472, a: 0}
+  CharacterIconColor: {r: 0.6666667, g: 0.82745105, b: 0.76470596, a: 1}
   CharacterIconMaterial: {fileID: 0}
-  CharacterPortrait: {fileID: 21300000, guid: 7b03760ae61624ab2aebef46b5ed842b, type: 3}
+  CharacterPortrait: {fileID: 21300000, guid: abd9df12a11264866bfbc607ef7afa5b, type: 3}
   CharacterPortraitMaterial: {fileID: 0}
-  CharacterVoice: {fileID: 8300000, guid: 940b64770ce094696b72f4c80650adc2, type: 3}
+  CharacterVoice: {fileID: 8300000, guid: 924bec0dd1b9942a0b2a5f8a4e367f33, type: 3}
   CharacterVoicePitch: 1

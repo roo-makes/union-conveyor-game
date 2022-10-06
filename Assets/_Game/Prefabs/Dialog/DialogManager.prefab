@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6390667416278643260
 MonoBehaviour:
@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1710769918752875624}
   - component: {fileID: 4064007798965944309}
   - component: {fileID: 1710769918752875638}
+  - component: {fileID: 7567517593893822208}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -244,14 +245,14 @@ MonoBehaviour:
     dataVersion: 2
     usedInTemplate: {fileID: 0}
     name: FSM
-    startState: Has Choice
+    startState: Wait For Signal
     states:
     - name: Advance
       description: 
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 64.296875
+        x: 304.29688
         y: 90.08594
         width: 100
         height: 32
@@ -358,7 +359,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 260.9922
+        x: 500.9922
         y: 50.796875
         width: 170
         height: 32
@@ -588,7 +589,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 287.35156
+        x: 527.35156
         y: 131.78906
         width: 110
         height: 32
@@ -769,7 +770,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 62
+        x: 302
         y: 218
         width: 100
         height: 48
@@ -1043,7 +1044,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 247.82031
+        x: 487.8203
         y: 292.1172
         width: 105
         height: 32
@@ -1297,7 +1298,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 249.55469
+        x: 489.5547
         y: 339.96094
         width: 110
         height: 32
@@ -1502,6 +1503,67 @@ MonoBehaviour:
         - everyFrame
         paramDataPos: 00000000000000000100000000000000000000000000000002000000000000000000000001000000010000000200000000000000000000000000000003000000
         paramByteDataSize: 00000000000000000000000000000000010000000000000000000000000000000000000000000000010000000100000000000000000000000000000001000000
+    - name: Wait For Signal
+      description: 
+      colorIndex: 0
+      position:
+        serializedVersion: 2
+        x: 53.609375
+        y: 200.94531
+        width: 118
+        height: 32
+      isBreakpoint: 0
+      isSequence: 0
+      hideUnused: 0
+      transitions:
+      - fsmEvent:
+          name: sig-startDay
+          isSystemEvent: 0
+          isGlobal: 0
+        toState: Has Choice
+        linkStyle: 0
+        linkConstraint: 0
+        linkTarget: 0
+        colorIndex: 0
+      actionData:
+        actionNames: []
+        customNames: []
+        actionEnabled: 
+        actionIsOpen: 
+        actionStartIndex: 
+        actionHashCodes: 
+        unityObjectParams: []
+        fsmGameObjectParams: []
+        fsmOwnerDefaultParams: []
+        animationCurveParams: []
+        functionCallParams: []
+        fsmTemplateControlParams: []
+        fsmEventTargetParams: []
+        fsmPropertyParams: []
+        layoutOptionParams: []
+        fsmStringParams: []
+        fsmObjectParams: []
+        fsmVarParams: []
+        fsmArrayParams: []
+        fsmEnumParams: []
+        fsmFloatParams: []
+        fsmIntParams: []
+        fsmBoolParams: []
+        fsmVector2Params: []
+        fsmVector3Params: []
+        fsmColorParams: []
+        fsmRectParams: []
+        fsmQuaternionParams: []
+        stringParams: []
+        byteData: 
+        arrayParamSizes: 
+        arrayParamTypes: []
+        customTypeSizes: 
+        customTypeNames: []
+        paramDataType: 
+        paramName: []
+        paramDataPos: 
+        paramByteDataSize: 
     events:
     - name: dialogFinished
       isSystemEvent: 0
@@ -1524,6 +1586,9 @@ MonoBehaviour:
     - name: gl-dialogChoiceTimeout
       isSystemEvent: 0
       isGlobal: 1
+    - name: sig-startDay
+      isSystemEvent: 0
+      isGlobal: 0
     globalTransitions: []
     variables:
       floatVariables:
@@ -1703,6 +1768,36 @@ MonoBehaviour:
     handleAnimatorIK: 0
   fsmTemplate: {fileID: 0}
   eventHandlerComponentsAdded: 1
+--- !u!114 &7567517593893822208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710769918752875625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 6e33417f49e0e4205b2e74f47a87f0c0, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1710769918752875638}
+          m_TargetAssemblyTypeName: PlayMakerFSM, PlayMaker
+          m_MethodName: SendEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: sig-startDay
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2525754738948417925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,11 +2138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2358229422749760808, guid: 230410b5efdfe493da9a85f16a457cde, type: 3}
       propertyPath: fsm.variables.arrayVariables.Array.data[0].objectTypeName
-      value: 
+      value: UnityEngine.Object
       objectReference: {fileID: 0}
     - target: {fileID: 2358229422749760808, guid: 230410b5efdfe493da9a85f16a457cde, type: 3}
       propertyPath: fsm.variables.arrayVariables.Array.data[1].objectTypeName
-      value: 
+      value: UnityEngine.Object
       objectReference: {fileID: 0}
     - target: {fileID: 8318119510162033679, guid: 230410b5efdfe493da9a85f16a457cde, type: 3}
       propertyPath: m_Pivot.x
