@@ -54,3 +54,4 @@ MonoBehaviour:
   - gl-dialogChoiceTimeout
   - gl-onTrigger
   - gl-triggerComplete
+  - gl-dialogDone

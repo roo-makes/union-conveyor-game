@@ -10,12 +10,13 @@ namespace _Game.Scripts.Gameplay
     {
         [SerializeField] private UnityEvent<GameObject> _spawnedWidget;
         [SerializeField] private FloatVariable _spawnRate;
-        [SerializeField] private bool _spawningActive;
+        [SerializeField] private BoolVariable _spawningActive;
 
         private Collider2D _collider;
         private BoxCollider2D _lastSpawned;
 
         private WaitForSeconds _delayYield;
+        private WaitUntil _activeYield;
         private Coroutine _runningCoroutine;
 
         void Awake()
@@ -31,6 +32,7 @@ namespace _Game.Scripts.Gameplay
         void Start()
         {
             _delayYield = new WaitForSeconds(_spawnRate.Value);
+            _activeYield = new WaitUntil(() => _spawningActive.Value);
             _runningCoroutine = StartCoroutine(SpawnerCoroutine());
         }
 
@@ -51,7 +53,7 @@ namespace _Game.Scripts.Gameplay
             while (true)
             {
                 yield return _delayYield;
-                yield return new WaitUntil(() => _spawningActive);
+                yield return _activeYield;
                 SpawnWidget();
             }
         }

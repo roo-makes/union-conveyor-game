@@ -6151,7 +6151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &315785874728500700
 Transform:
   m_ObjectHideFlags: 0
@@ -10639,7 +10639,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _spawnRate: {fileID: 11400000, guid: d606ef4f251d2456bac53ec9f61b27b2, type: 2}
-  _spawningActive: 1
+  _spawningActive: {fileID: 11400000, guid: be957591509f241f2a31e95655948fe2, type: 2}
 --- !u!61 &2215887493240402217
 BoxCollider2D:
   m_ObjectHideFlags: 0

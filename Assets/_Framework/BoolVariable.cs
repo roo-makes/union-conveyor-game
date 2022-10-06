@@ -9,8 +9,19 @@ namespace _Framework
     [CreateAssetMenu(fileName = "BoolVariable", menuName = "Framework/BoolVariable")]
     public class BoolVariable : ScriptableObject
     {
+        private bool _value;
+
         [OnValueChanged("ValueChanged")]
-        public bool Value;
+        [ShowInInspector]
+        public bool Value
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+                ValueChanged();
+            }
+        }
         public event Action<bool> OnChange;
 
         public override string ToString()
@@ -26,7 +37,7 @@ namespace _Framework
 
         public void ValueChanged()
         {
-            OnChange.Invoke(Value);
+            OnChange?.Invoke(Value);
         }
     }
 }
