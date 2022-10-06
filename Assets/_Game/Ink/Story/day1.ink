@@ -159,7 +159,7 @@ EDNA: Wow, that's so stupid.
     
     
 - COMMENT: Work day begins.
--> damien_day1
+-> DONE
 
 == damien_day1 ==
 COMMENT: It's 11am.
@@ -220,7 +220,7 @@ Damien breaks off the conversation awkwardly.
 DAMIEN: Great to meet you!
 EDNA: ...
 
--> helena_day_1 
+-> DONE
 
 ==damien_desists==
 COMMENT:Damien does not speak to Edna.
@@ -231,7 +231,7 @@ DAMIEN: Nobody gives me a chance...
     ~edna_opinion +=1  
     }
 - 
--> helena_day_1
+-> DONE
 
 ==helena_day_1==
 
@@ -284,7 +284,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     ~labor_unrest +=1 
     - HELENA: OK, back to work. Recruiting people, that is.
     
-    ->meet_stu
+    ->DONE
     
     ==meet_stu==
     STU: Hey.
@@ -360,7 +360,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     STU: Well, I'm getting a bit behind on my cylinders here. Talk to you later Carol.
 
     
-    -> edna_disappears
+    -> DONE
     
 ==edna_disappears==
 EDNA: So Carol ... you think I should just go ask him, now? 
