@@ -1,0 +1,224 @@
+
+
+==day2_boss_announce==
+BOSS: Unfortunately, Edna didn't end up being a great fit. We're a family here, and like many families, we've had to make the difficult decision to cut ties with a poorly-performing relative who does not help us meet our objectives at this time.
+BOSS: In one sense, I owe you an apology. 
+
+BOSS: I hired a loser. I've exhibited that tendency in the past, and in many cases we're still living with the effects of those mistakes. 
+
+BOSS: This doesn't entirely absolve me of blame, but to be fair to myself I should note that many of our applicants are among the most worthless our society has to offer.
+BOSS: In any case, you will pay the price for Edna's inadequacy, and pick up her slack today. We have a new order of drain cleaner. Ok, that's it. Get to it.
+->DONE
+
+==day2_helena==
+
+TRIGGER_ASYNC: start-day
+
+HELENA: What the fuck. One day? 
+
+YOU: I know, and I'm not even sure what happened. She was supposed to be getting out early to pick up her brother. And then she just... stayed in the boss's office?
+
+HELENA: I feel like this is worse than a firing. I wouldn't put any depraved shit past the boss. Damn it, we didn't even get her number yesterday.
+
+    * Why don't you go ask? Say she left something with you and you need to get in touch with her.
+    HELENA: You're right. We can at least get her side of it.
+    Helena talks to the boss, inaudible to you.
+    HELENA: He said he'll make sure things get to her if we hand them over to him. Unbelievable.
+    ~helena_opinion +=1 
+    ~labor_unrest +=1 
+    ->day2_helena.organize
+
+    * Seems like scary stuff. We'd better stay out of it.
+    ~helena_opinion -=1
+    HELENA: Ugh, why do I bother bringing real issues up with you?
+    ->day2_stu
+
+    * All those siblings she was supporting. If something happened to her, they're pretty screwed.
+    HELENA: Yup, and he just calls her a loser.
+    ->day2_helena.organize
+
+=organize
+    * We can't be the only ones who are pissed about this.
+    HELENA: You're right. You talk to Stu today. I'll see what Charlie thinks. We'll report back.
+    ~helena_opinion +=1 
+    *Did you ever get people to work together at your old office job?
+    ~helena_opinion += 1 
+    HELENA: Well, we never got as far as forming ...
+    ...
+    a union or anything. 
+    HELENA: But we did get everyone to demand a pay increase. Which also put a target on my back. But still, I think we can accomplish something here. You talk to Stu and I'll see if we can get Charlie motivated.
+    *You're kinda friendly with the boss, right? Can't you convince him to treat us better?
+    ~helena_opinion -=1 
+    HELENA: What?? Are you TRYING to insult me? Pretty sure that guy hates me.
+    YOU: I don't know, all the one-on-one conversations? Heated back-and-forths? Thought you had the inside track.
+    HELENA: Yeah, I've got a talent for pissing him off, I guess. How have I not been fired if Edna got canned for nothing?
+    YOU: Guess it's easier when someone's brand new.
+- HELENA: Alright, good luck on spreading the word. -> day2_stu
+
+==day2_stu==
+    *Hey there, Stu.
+    STU: Hey Carol. Weird day today.
+    YOU: Seriously.
+    ->day2_stu.edna
+    *Such a shame what happened to Edna, huh?
+    STU: Yeah, here one day, gone the next? Apparently because she was a "loser"?
+    ->day2_stu.edna
+    *It's time to stand up and fight, Stu!
+    ~stu_opinion -=1
+    STU: What? I don't want to fight anyone.
+        **Injustice is all around us! Can't you smell it?
+        ~stu_opinion -=1 
+        STU: Oh, you're talking about Edna? Yeah, that was wrong. 
+        ->day2_stu.edna
+        
+        **But after what they did to Edna?
+        STU: Oh yeah, that wasn't fair. I don't even really get what happened.
+        ->day2_stu.edna
+        **And they're pulling this crap when we're already suffering from the lack of bathroom breaks, not to mention the workload.
+        STU: It's true, we've got a lot to be mad about.
+        ~labor_unrest +=1 
+            ***They keep piling it on, and we've been so understanding so far.
+            ~stu_opinion +=1
+            ~labor_unrest +=1 
+            
+            *** [They treat us well actually] YOU: Eh, actually, I think they treat us pretty well.
+            STU: Oh? Well, I guess I can see it that way.
+            ~labor_unrest -=1 
+            
+            *** Sure. 
+            STU: Uh, ok.
+            --- ->day2_stu.edna
+=edna
+        ** What do you make of all this with Edna?
+    STU: I don't know - it's scary to be reminded that they could just get rid of any of us at any time. I'm not trying to cause any trouble. But Edna didn't seem to be doing anything wrong. 
+    YOU: I know, we're always vulnerable, even when it doesn't seem like it. 
+    ~labor_unrest +=1 
+    STU: That's a dark thought. But it's true I guess. I've seen it first hand, had some terrible bosses.
+    ->day2_stu.bad_bosses
+    
+        **I trained Edna. She seemed great.
+        STU: I didn't get to talk to her, but I can't imagine what would have justified disappearing her like that. That's probably what it looked like when they fired me at my old job.
+        ~stu_opinion +=1
+        ->day2_stu.bad_bosses
+        **Yeah, I'd be perfectly happy to keep quiet if they were treating everyone fairly. But I feel like we have to stand up for ourselves or they'll walk all over us.
+            ~stu_opinion +=1
+            ~labor_unrest +=1 
+        STU: That's what I'm thinking. I wish the boss was like, nice, and we could count him as a friend. But I don't trust him. I've had some bad bosses before.
+        ->day2_stu.bad_bosses
+        
+    ->day2_stu.end
+        **We're gonna get those bastards for what they did to Edna.
+        ~stu_opinion -=1 
+        STU: Like, firing her? What did they do exactly?
+        YOU: Well, we don't know. But it doesn't look good.
+        STU: Oh, yeah. Well, that's true. But I thought you like, knew something.
+            ***[It was obviously unjust] YOU: I do know she was asking for a perfectly reasonable accommodation. That she needed this job and wouldn't have quit. And so clearly they fucked her over somehow.
+           
+            *** [Ground her up for dog food] YOU: They ground her up for dog food, for all we know!
+            ~stu_opinion -=1
+            STU: Huh, you're really fired up about this, aren't you? I hope that's not what happened.
+            ***[Yeah, not really.] YOU: Yeah, not really.
+            ---
+->day2_stu.end
+=end 
+STU: Alright, I'll talk to you later Carol.
+->DONE
+    
+=bad_bosses
+            ***What happened with you?
+            STU: This one guy had it out for me cause I'm really into clothes. He must have thought I was mocking his style, but it's just something I like. 
+            STU: I mean, if I started judging everyone based on my standards, no one would look great. 
+                ****I've always noticed that you're a snappy dresser Stu, can't believe someone would be pissed about that.
+                STU: Well thanks, that's nice. 
+                ~stu_opinion +=1 
+                ->day2_stu.end
+                ****Did you lose the job?
+                STU: Yeah, he said it was for performance, but I knew that was crap. I did a great job.
+                YOU: I'm sorry to hear that Stu.
+                ~stu_opinion +=1 
+                ->day2_stu.end
+                ***Yeah, we have to show him that we won't tolerate a tyrant.
+            ~labor_unrest +=1
+                **** [You don't dress well] YOU: You think you dress well? That's news to me.
+                    STU: Jeez Carol. That's harsh.
+                    ~stu_opinion -= 1
+->day2_stu.end
+
+===mysterious_whisper_day2==
+EDNA: Carol...
+EDNA: Carol...
+EDNA: They're deschhhhhh... I can't cut through
+EDNA: I'm ooooooshhh here but shhhhhsss help you.
+->END
+
+==damien_day2==
+DAMIEN: I can't believe it. I blew it.
+
+    * What? Is this about EDNA?
+
+    DAMIEN: Yes! I fucked up. And now she's gone.
+    YOU: Wait, what do you know Damien?
+    DAMIEN: That I'm going to be alone forever!
+
+    * What did you do this time?
+    DAMIEN: I missed my shot. As always.
+
+
+    * Nobody cares if a couple baby formula bottles go out unsanitized, DAMIEN.
+    DAMIEN: What? Oh, I know. No one cares. It's about EDNA.
+    YOU: You know what happened to her?
+    DAMIEN: Well I know what didn't happen. I didn't get her number, and now she's gone.
+
+- 
+        ** This is some bullshit about getting a date?
+        DAMIEN: It's about NOT getting a date, CAROL!  If it was about getting a date I would have brought cupcakes in.
+
+        **DAMIEN. She didn't like you. At all, as far as I could tell.
+        ~damien_opinion -=1 
+        DAMIEN: Well that's just mean! She hardly knew me. 
+        ** I understand it must be... difficult for you. To have a woman pass through your life... without dating you.
+        ~damien_opinion +=1
+        DAMIEN:Sometimes I feel like you're the only one here who gets me, CAROL.
+            ***I know you're lonely DAMIEN, but I can see where your desperate mind is taking you.
+
+            *** I can't believe the BOSS would do that too you. He saw you liked EDNA. He probably got rid of her to spite you.
+
+            ~damien_opinion +=1 
+            ~labor_unrest +=1
+    
+            DAMIEN: Wow, that's messed up. But I see it!
+
+            *** Go on?
+            ~damien_opinion += 1
+- 
+DAMIEN: If you keep joking about that, I'm going to start thinking you really do like me!
+
+YOU: If you're willing to talk about something real, rather than complete fiction, everyone's talking about how we don't get bathroom breaks.
+
+DAMIEN: Oh, yeah, that's not fair and all. 
+
+    * Yeah, we're fired up about it! We're going to confront the boss soon!
+    DAMIEN: Ah, yeah. That's cool. Do you think EDNA got fired because of... bathroom break?
+    YOU: Let's talk about this another time, DAMIEN.
+    * I know, it's hard to stay hydrated and maintain our youthful good looks when we don't get to pee all day.
+    ~labor_unrest += 1 
+    DAMIEN: Wait, how do I stay hydrated and look good?
+    YOU: You drink water.
+    DAMIEN. I drink... water. And then I have to pee.
+    YOU: Yes, but we're not allowed to pee. 
+    DAMIEN: I know! Sometimes it makes me feel like I'm going to pee my pants. But I haven't.
+    YOU: Well, you shouldn't have to worry about that, any more than the normal amount anyway.
+    DAMIEN: Our chats always put me in a thoughtful mood. Thanks CAROL.
+
+- -> depart_day2
+
+==depart_day2==
+HELENA: Can't believe this place thinks they can fire people AND not let us have bathroom breaks. Why do any of us work here?
+
+DAMIEN: I'm so lonely, and it's all the BOSS's fault.
+
+STU: I bet I'm next. I'm always the target.
+
+
+
+->DONE
