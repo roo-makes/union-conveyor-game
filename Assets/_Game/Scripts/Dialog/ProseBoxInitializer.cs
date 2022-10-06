@@ -23,6 +23,7 @@ namespace _Game.Scripts.Dialog
             var characterVoice = character.CharacterVoice;
             
             _fsm.FsmVariables.GetFsmString("dialogText").Value = dialogText;
+            _fsm.FsmVariables.GetFsmObject("characterObj").Value = character;
             _fsm.FsmVariables.GetFsmString("characterName").Value = characterName;
             _fsm.FsmVariables.GetFsmObject("characterSprite").Value = characterSprite;
             _fsm.FsmVariables.GetFsmObject("characterVoice").Value = characterVoice;

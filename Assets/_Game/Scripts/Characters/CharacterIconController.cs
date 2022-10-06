@@ -1,5 +1,8 @@
+using _Framework;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Game.Scripts.Characters
@@ -9,8 +12,14 @@ namespace _Game.Scripts.Characters
         [OnValueChanged("SetupCharacterEditor")] [SerializeField]
         private CharacterSO _character;
 
+        [SerializeField] private FloatVariable _characterTalkMoveYRange;
+        [SerializeField] private FloatVariable _characterTalkMoveYFreq;
+
         private SpriteRenderer _spriteRenderer;
         private TextMeshPro _textMeshPro;
+        private Tween _talkingTween;
+
+        private float _startY;
 
         void Awake()
         {
@@ -21,6 +30,20 @@ namespace _Game.Scripts.Characters
         void Start()
         {
             SetupCharacter();
+            _startY = _spriteRenderer.gameObject.transform.localPosition.y;
+            _character.StartedTalking += StartTalking;
+            _character.StoppedTalking += StopTalking;
+        }
+
+        void OnDisable()
+        {
+            if (_talkingTween != null)
+            {
+                _talkingTween.Kill();
+            }
+
+            _character.StartedTalking += StartTalking;
+            _character.StoppedTalking += StopTalking;
         }
 
         void SetupCharacterEditor()
@@ -37,11 +60,20 @@ namespace _Game.Scripts.Characters
             {
                 _textMeshPro.text = _character.IsPlayer ? "YOU" : _character.Name;
                 _spriteRenderer.color = _character.CharacterIconColor;
-                // if (_character.CharacterIconMaterial)
-                // {
-                //     _spriteRenderer.material = _character.CharacterIconMaterial;
-                // }
             }
+        }
+
+        public void StartTalking()
+        {
+            _talkingTween = _spriteRenderer.transform.DOLocalMoveY(_startY + _characterTalkMoveYRange.Value,
+                    _characterTalkMoveYFreq.Value / 2)
+                .SetLoops(-1, LoopType.Yoyo);
+        }
+
+        public void StopTalking()
+        {
+            _talkingTween.Kill();
+            _spriteRenderer.transform.DOLocalMoveY(_startY, _characterTalkMoveYFreq.Value / 2);
         }
     }
 }

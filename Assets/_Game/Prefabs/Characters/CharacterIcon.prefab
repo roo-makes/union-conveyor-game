@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: 11400000, guid: 27741dea7ac4347a48c99328fd8f3160, type: 2}
+  _characterTalkMoveYRange: {fileID: 11400000, guid: 3159853f2546a46abb318571a3375de2, type: 2}
+  _characterTalkMoveYFreq: {fileID: 11400000, guid: 7537698ec8db2415191c5d783f8bb9db, type: 2}
 --- !u!114 &4443235188609780418
 MonoBehaviour:
   m_ObjectHideFlags: 0

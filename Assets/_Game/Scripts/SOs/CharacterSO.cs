@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -23,5 +24,30 @@ namespace _Game.Scripts
         public AudioClip CharacterVoice;
 
         [Range(0.5f, 2f)] public float CharacterVoicePitch = 1;
+
+        private bool _isTalking;
+        public event Action StartedTalking;
+        public event Action StoppedTalking;
+
+        public bool IsTalking
+        {
+            get => _isTalking;
+            set
+            {
+                if (value == _isTalking) return;
+
+                if (value)
+                {
+                    _isTalking = true;
+                    StartedTalking.Invoke();
+                }
+                else
+                {
+                    _isTalking = false;
+                    StoppedTalking.Invoke();
+                }
+
+            }
+        }
     }
 }

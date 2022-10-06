@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inkAsset: {fileID: 4900000, guid: a593bbede343c449898cc8877e56662d, type: 3}
-  _textBox: {fileID: 0}
+  _triggersController: {fileID: 0}
   _characters:
   - {fileID: 11400000, guid: 3615234e94b584308ac88acfb7517cf0, type: 2}
   - {fileID: 11400000, guid: 30dafc3ed1ec14bedaaf4502a8e83998, type: 2}
