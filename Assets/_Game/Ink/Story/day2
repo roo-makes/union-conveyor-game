@@ -12,14 +12,16 @@ BOSS: I hired a loser. I've exhibited that tendency in the past, and in many cas
 
 BOSS: This doesn't entirely absolve me of blame, but to be fair to myself I should note that many of our applicants are among the most worthless our society has to offer.
 BOSS: In any case, you won't have to pay the price for Edna's inadequacy and pick up her slack today. I've brought in Patricia, my neice, to help out. Everyone, welcome Patricia.
-BOSS: Also, I have some good news! Due to a large number of complaints, we will now be sanitizing the bottles before filling. 
+TRIGGER_SYNC: patricia-enter
+BOSS: Also, I have some good news! We changed suppliers for our bottles to save some cash, but we now have to sanitize the bottles before filling. 
 BOSS: First, press and hold {left_btn} to charge the sanitizer. Then, when bottles are in the first zone on your left, press {left_btn} again to sanitize all of the ones in that zone.
 BOSS: You'll figure it out.
-->DONE
+
+-> day2_helena
 
 ==day2_helena==
-
-TRIGGER_ASYNC: start-day
+TRIGGER_SYNC: start-day
+TRIGGER_ASYNC: cam-conveyors-tight
 
 HELENA: What the fuck. One day? 
 
@@ -64,6 +66,7 @@ HELENA: I feel like this is worse than a firing. I wouldn't put any depraved shi
 -> DONE
 
 ==damien_day2==
+TRIGGER_ASYNC: cam-damien
 DAMIEN: I can't believe it. I blew it.
 
     * [What? About Edna?] YOU: What? Is this about Edna?
@@ -123,9 +126,14 @@ DAMIEN: Oh, yeah, that's not fair and all.
     YOU: Well, you shouldn't have to worry about that, any more than the normal amount anyway.
     DAMIEN: Our chats always put me in a thoughtful mood. Thanks Carol.
 
+    TRIGGER_SYNC: cam-zoomed-out
+
 - -> DONE
 
 ==day2_stu==
+    TRIGGER_SYNC: cam-stu
+    YOU: ...Stu?
+
     *[Hey Stu] YOU: Hey there, Stu.
     STU: Hey Carol. Weird day today.
     YOU: Seriously.
@@ -192,6 +200,8 @@ DAMIEN: Oh, yeah, that's not fair and all.
 ->day2_stu.end
 =end 
 STU: Alright, I'll talk to you later Carol.
+TRIGGER_SYNC: cam-conveyors-tight
+
 ->DONE
     
 =bad_bosses
@@ -215,10 +225,15 @@ STU: Alright, I'll talk to you later Carol.
 ->day2_stu.end
 
 ===mysterious_whisper_day2==
+TRIGGER_SYNC: edna-flash
 EDNA: Carol...
-EDNA: Carol...
+TRIGGER_SYNC: edna-pause
+EDNA: Carol.................................................
+TRIGGER_SYNC: edna-pause
 EDNA: They're deschhhhhh... I can't cut through
+TRIGGER_SYNC: edna-pause
 EDNA: I'm ooooooshhh here but shhhhhsss help you.
+TRIGGER_SYNC: edna-flash-end
 ->DONE
 
 
@@ -226,6 +241,7 @@ EDNA: I'm ooooooshhh here but shhhhhsss help you.
 
 
 ===damien_day2_convo2===
+TRIGGER_ASYNC: cam-damien
 DAMIEN: Now I've gotta talk to Patricia.
 
 YOU: Damien. I don't know how this can be true if she's working in this facility, but I think she's like 10?
@@ -255,6 +271,9 @@ YOU: You don't seem to mind the new work station.
 
 DAMIEN: Oh, I figure if we weren't doing it before, no one will notice the ones I miss now.
 
+TRIGGER_SYNC: cam-conveyors-tight
+
+
 ->DONE
 
 ==complain_day2==
@@ -275,8 +294,10 @@ STU: I bet I'm next. I'm always the target.
     -> helena_confronts
     
     ===helena_confronts===
+TRIGGER_SYNC: helena-confront-boss
 
 HELENA: Boss! We've gotta talk.
+TRIGGER_SYNC: boss-goto-door
 BOSS: Oh yeah? What about?
 HELENA: Things have been shitty here for a while, but firing Edna after one day was the last straw.
 -> carol_confronts.confront
@@ -285,7 +306,10 @@ HELENA: Things have been shitty here for a while, but firing Edna after one day 
     
     
 ==carol_confronts==
+TRIGGER_SYNC: carol-confront-boss
+
 YOU: Boss! We've gotta talk.
+TRIGGER_SYNC: boss-goto-door
 BOSS: Yeah?
 -> confront
 
@@ -413,8 +437,7 @@ YOU: See, it's not just me who's fed up.
     {else:
     DAMIEN: Carol and Helena need to relax.
     }
-    
-    
+
 ->DONE
 
 

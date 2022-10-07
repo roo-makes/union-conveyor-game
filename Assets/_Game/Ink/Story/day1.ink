@@ -8,9 +8,9 @@ VAR damien_opinion = 5
 VAR helena_opinion = 5
 VAR stu_opinion = 5
 VAR avoid_edna = false
-VAR center_btn = "x"
-VAR left_btn = "z"
-VAR right_btn = "c"
+VAR center_btn = "X"
+VAR left_btn = "Z"
+VAR right_btn = "C"
 VAR big_btn = "space"
 
 -> day_1_intro
@@ -251,6 +251,8 @@ TRIGGER_SYNC: cam-conveyors-tight
 
 ==helena_day_1==
 
+TRIGGER_ASYNC: cam-conveyors-tight
+
 HELENA: Hey
 
 YOU: Hi HELENA
@@ -304,6 +306,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     ->DONE
     
     ==meet_stu==
+    TRIGGER_ASYNC: cam-conveyors-tight
     STU: Hey.
     YOU: What, you want to date the new girl too?
     STU: What?
@@ -398,6 +401,7 @@ STU: Funny. But this is just a job. I keep myself good and dehydrated during the
     
     
 ==edna_disappears==
+TRIGGER_ASYNC: cam-edna-tight
 EDNA: So Carol ... you think I should just go ask him, now? 
 
 YOU: Yeah, just tell him you've gotta pick up your little brother early today. He has kids. He'll get it.

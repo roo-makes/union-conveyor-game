@@ -56,3 +56,4 @@ MonoBehaviour:
   - gl-triggerComplete
   - gl-dialogDone
   - gl-startKnot
+  - gl-gameOver

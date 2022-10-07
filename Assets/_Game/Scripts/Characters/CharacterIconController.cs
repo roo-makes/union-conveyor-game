@@ -65,6 +65,7 @@ namespace _Game.Scripts.Characters
 
         public void StartTalking()
         {
+            if (_spriteRenderer == null) return;
             _talkingTween = _spriteRenderer.transform.DOLocalMoveY(_startY + _characterTalkMoveYRange.Value,
                     _characterTalkMoveYFreq.Value / 2)
                 .SetLoops(-1, LoopType.Yoyo);
@@ -72,6 +73,7 @@ namespace _Game.Scripts.Characters
 
         public void StopTalking()
         {
+            if (_spriteRenderer == null) return;
             _talkingTween.Kill();
             _spriteRenderer.transform.DOLocalMoveY(_startY, _characterTalkMoveYFreq.Value / 2);
         }

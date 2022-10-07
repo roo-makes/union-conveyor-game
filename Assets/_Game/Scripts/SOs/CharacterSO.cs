@@ -39,12 +39,12 @@ namespace _Game.Scripts
                 if (value)
                 {
                     _isTalking = true;
-                    StartedTalking.Invoke();
+                    StartedTalking?.Invoke();
                 }
                 else
                 {
                     _isTalking = false;
-                    StoppedTalking.Invoke();
+                    StoppedTalking?.Invoke();
                 }
 
             }

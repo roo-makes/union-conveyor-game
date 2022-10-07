@@ -259,7 +259,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 537.5078
+        x: 521.5078
         y: 363.10156
         width: 123
         height: 48
@@ -525,7 +525,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 776.8203
+        x: 760.8203
         y: 322.14062
         width: 170
         height: 32
@@ -755,7 +755,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 801.7422
+        x: 785.7422
         y: 373.70312
         width: 110
         height: 32
@@ -1046,7 +1046,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 796.2578
+        x: 780.2578
         y: 174.46094
         width: 105
         height: 32
@@ -1300,7 +1300,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 797.9922
+        x: 781.9922
         y: 222.30469
         width: 110
         height: 32
@@ -1510,8 +1510,8 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 61.40625
-        y: 271.85938
+        x: 53.40625
+        y: 279.85938
         width: 145
         height: 48
       isBreakpoint: 0
@@ -1725,7 +1725,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 325.35938
+        x: 309.35938
         y: 250.64062
         width: 145
         height: 32
@@ -1958,9 +1958,9 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 79.11719
+        x: 63.117188
         y: 193.57812
-        width: 100
+        width: 108
         height: 32
       isBreakpoint: 0
       isSequence: 0
@@ -2046,7 +2046,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 532.5078
+        x: 516.5078
         y: 216.39062
         width: 121
         height: 48
@@ -2320,7 +2320,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 538
+        x: 522
         y: 60
         width: 111
         height: 48
@@ -2540,7 +2540,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 311
+        x: 295
         y: 117
         width: 129
         height: 32
@@ -2646,7 +2646,7 @@ MonoBehaviour:
       colorIndex: 0
       position:
         serializedVersion: 2
-        x: 77
+        x: 61
         y: 427
         width: 123
         height: 32
@@ -2795,9 +2795,6 @@ MonoBehaviour:
     - name: onChoice
       isSystemEvent: 0
       isGlobal: 0
-    - name: onDialog
-      isSystemEvent: 0
-      isGlobal: 0
     - name: gl-dialogProseAllTyped
       isSystemEvent: 0
       isGlobal: 1
@@ -2831,12 +2828,24 @@ MonoBehaviour:
     - name: gl-startKnot
       isSystemEvent: 0
       isGlobal: 1
+    - name: gl-gameOver
+      isSystemEvent: 0
+      isGlobal: 1
     globalTransitions:
     - fsmEvent:
         name: gl-startKnot
         isSystemEvent: 0
         isGlobal: 1
       toState: Start From Knot
+      linkStyle: 0
+      linkConstraint: 0
+      linkTarget: 0
+      colorIndex: 0
+    - fsmEvent:
+        name: gl-gameOver
+        isSystemEvent: 0
+        isGlobal: 1
+      toState: Hide Dialog
       linkStyle: 0
       linkConstraint: 0
       linkTarget: 0
