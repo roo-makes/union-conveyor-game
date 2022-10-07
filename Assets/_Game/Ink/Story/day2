@@ -346,16 +346,17 @@ YOU: See, it's not just me who's fed up.
     BOSS: Great, I hope you feel better. And I'm sure I'll see you back here tommorrow. And the next day.
     ~labor_unrest -=1
     -
-    {~damien_opinion > 3 :
+    {damien_opinion > 3 :
     DAMIEN: I'm sick of this too. CAROL said not being able to pee is bad for my skin.
     ~labor_unrest +=1
     ->carol_confronts.stage4
     
-    ~damien_opinion < 3:
+    damien_opinion < 3:
     DAMIEN: OK, calm down Carol, you've said your piece.
     ~labor_unrest -=1 
     ->carol_confronts.stage4
     }
+    =stage4
     
 ->DONE
 

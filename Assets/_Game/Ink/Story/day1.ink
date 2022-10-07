@@ -113,8 +113,8 @@ EDNA: But no one will mind me being on the quiet side, right?
 
     * [Whatever works for you] YOU: Well, whatever works for you.
     EDNA: Do you think anyone will mind?
-
-    -
+-
+    ->conveyor_and_chat_tutorial
     = conveyor_and_chat_tutorial
 
         * [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
