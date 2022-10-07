@@ -228,17 +228,18 @@ EDNA: I'm ooooooshhh here but shhhhhsss help you.
 ===damien_day2_convo2===
 DAMIEN: Now I've gotta talk to Patricia.
 
-YOU: Uh, Damien. I don't know how it can be true if she's working in this facility, but I think she's like 10?
+YOU: Damien. I don't know how this can be true if she's working in this facility, but I think she's like 10?
 
-DAMIEN: It's not like that. I just haven't met anyone new today.
+DAMIEN: Disgusting Carol, it's not like that. I just haven't met anyone new today.
 
 YOU: What?
 
-DAMIEN: Usually I've started one new conversation with someone on a dating app by this time in the morning. But it's fine to meet non-dating people too.
+DAMIEN: Usually I go out for a walk before work to talk to a stranger and meet someone new. But I've been so tired all the time since I started really restricting water to avoid peeing at work.
 
-DAMIEN: It's part of my "one-a-day" philosophy. 
+DAMIEN: Meeting people is part of my "one-a-day" philosophy. 
 * [What's that?] YOU: What's that?
-DAMIEN: It's the idea that everything can be good for you in moderation, which is no more or less than once a day for anything. Gotta meet one new person a day.
+
+DAMIEN: You know how everything is good for you in moderation? What's more moderate than once a day? It applies to anything. In this case, I gotta meet one new person a day.
 YOU: So you eat once a day?
 DAMIEN: No, I eat breakfast once a day, and lunch once. And so on.
 YOU: Seems like cheating to me.
@@ -246,11 +247,11 @@ YOU: Seems like cheating to me.
 * [Enough with the philosophies] YOU: Enough with the philosophies from you.
 DAMIEN: It's good to have a code, so it's even better to have a bunch of them.
 
-* So you have to jack off once a day?
-DAMIEN: Ew Carol, it's not one of THOSE philosophies! I can also abstain once a day instead.
+* [You jack off once a day?] So you have to jack off once a day?
+DAMIEN: Ew Carol, it's not one of those masturbation philosophies! I just do it once a day sometimes and abstain once a day other times.
 ~damien_opinion -=1 
 -
-YOU: You don't seem to mind the new sanitizing station.
+YOU: You don't seem to mind the new work station.
 
 DAMIEN: Oh, I figure if we weren't doing it before, no one will notice the ones I miss now.
 
@@ -266,16 +267,29 @@ STU: I bet I'm next. I'm always the target.
     * [Gotta confront the boss] YOU: We've gotta talk to the boss, like right now. 
 -> carol_confronts
     *[Just keep quiet.] YOU: Just keep quiet about it for now everyone. Our time will come... eventually.
+    
     -> helena_confronts
+    
     *[This sucks] YOU: I didn't realize this job could get more depressing.
+    
     -> helena_confronts
     
-    
+    ===helena_confronts===
+
+HELENA: Boss! We've gotta talk.
+BOSS: Oh yeah? What about?
+HELENA: Things have been shitty here for a while, but firing Edna after one day was the last straw.
+-> carol_confronts.confront
+
+->DONE
     
     
 ==carol_confronts==
 YOU: Boss! We've gotta talk.
 BOSS: Yeah?
+-> confront
+
+=confront
 * [We're pissed] YOU: We're pretty pissed off. You got rid of Edna after one day. You have us doing this new sanitization thing for the same pay. We still don't have bathroom breaks.
 ~labor_unrest += 3
 BOSS: Yes, those are all within the realm of business decisions. My job. Sanitizing and filling tubes? Your job.
@@ -316,11 +330,11 @@ BOSS: Sure, sure. Just write it down and hand it over before you leave.
     ~labor_unrest-=1 
 
     - 
-        { helena_opinion > 3 :
+        { helena_opinion > 5 :
         HELENA: I'm not gonna stand for it either.
         ~labor_unrest +=1
         -> carol_confronts.stage3
-        helena_opinion < 3 :
+        helena_opinion < 5 :
         HELENA: Maybe there's no hope for this shitty place.
         ~labor_unrest -=1
         -> carol_confronts.stage3
@@ -343,29 +357,100 @@ YOU: See, it's not just me who's fed up.
     ~labor_unrest +=1
     
     *[Let's just get new jobs] YOU: Whatever, we might as well just move on to new jobs.
-    BOSS: Great, I hope you feel better. And I'm sure I'll see you back here tommorrow. And the next day.
+    BOSS: Great, I hope you feel better. I'll see you back here tommorrow. And the next day.
     ~labor_unrest -=1
     -
-    {damien_opinion > 3 :
+    {damien_opinion > 5 :
     DAMIEN: I'm sick of this too. CAROL said not being able to pee is bad for my skin.
     ~labor_unrest +=1
     ->carol_confronts.stage4
-    
-    damien_opinion < 3:
+    }
+    { damien_opinion < 5:
     DAMIEN: OK, calm down Carol, you've said your piece.
     ~labor_unrest -=1 
     ->carol_confronts.stage4
     }
     =stage4
+    {labor_unrest>6:
+    HELENA: You're going to listen to us, or we're going to walk off. You may not be afraid of us, but you're afraid of what your bosses will say if production shuts down.
+    }
+    
+    {labor_unrest < 6 :
+    HELENA: You have to listen to us. Your tubes don't get filled with red goop without us. 
+    }
+    ->DONE
+    }
+    {else:
+    HELENA: I know there's no chance you'll listen to us, so why don't we quit pretending here? 
+    }
+    
+    
+    
+    
+    {labor_unrest>6:
+    STU: We need to have a say in how this place is run, as workers.
+    }
+    
+    {labor_unrest < 6 :
+    STU: We just want you to stop pushing us around. 
+    }
+    ->DONE
+    }
+    {else:
+    STU: I just want to stay out of this.
+    }
+    
+    
+      {labor_unrest>6:
+    DAMIEN: It's a lot of us against one of you.
+    }
+    
+    {labor_unrest < 6 :
+    DAMIEN: If I'm going to stay here as long as Carol has, it's got to be a better place to work.
+    }
+    ->DONE
+    }
+    {else:
+    DAMIEN: Carol and Helena need to relax.
+    }
+    
     
 ->DONE
 
 
 
-==helena_confronts==
-HELENA: Boss! We've gotta talk.
-BOSS: Oh yeah? What about?
-HELENA: Things have been shitty here for a while, but firing Edna after one day was the last straw.
 
+COMMENT: Fade to black screen?
 
-->DONE
+==end==
+YOU: Everything at Convei changed after that day.
+      {~labor_unrest>6:
+    YOU: We realized the power we held by working together for once, and made it official with a union.
+    YOU: It goes without saying that Boss tried to bust it. 
+    YOU: But Helena's in a meeting right now negotiating our new contract.
+    YOU: Still, I could tell there was something else going on. Not only was Boss scared of us - he was scared of his bosses. 
+    YOU: It always seemed like far more than the fear just of losing his job.
+    YOU: Eventually he said that a representative would be visiting soon. Something about traveling from another plane. 
+    
+    ->END
+    
+    ~labor_unrest<3:
+    YOU: Helena quit almost immediately after. She wanted someplace better to work, or at least someplace she could make better.
+    YOU: Damien met someone. He was preparing to see him in person for the first time and also move across the country to live nearby, so his departure was imminent.
+    YOU: The whole thing was demoralizing, really.
+    YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
+    YOU: Someone from corporate was coming up, he said, so we'd better be ready. 
+    
+    -> END
+    
+    ~else :
+    YOU: We made some progress. Boss backed off some, and things did get better. 
+    YOU: We certainly didn't win on everything. Sick leave was a bridge too far.
+    YOU: But we felt confident we could win more with time.
+    YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
+    YOU: Someone from corporate was coming up, he said, so we'd better be ready.
+    ->END
+    }
+   
+    
+

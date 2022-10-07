@@ -290,7 +290,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     ~labor_unrest -= 1
     YOU: If those things didn't sell, we'd be fucked.
     HELENA: Yeah, well we're pretty fucked now too.
-    * [The boss has no idea] The boss has no idea how pissed we are. You should tell him.
+    * [Tell boss you're mad] The boss has no idea how pissed we are. You should tell him.
     HELENA: You're right. Watch this.
     Helena says things you can't make out to the boss. 
     ~helena_opinion +=1
@@ -341,6 +341,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             ***[I'd learn Greek] YOU: I'd learn Greek if that's what it took to step off the line for a second.
             --- -> meet_stu.bathroom
     * [Everyone's fascinated with Edna] ->meet_stu.EDNA
+    *[You meet Edna?] YOU: You meet Edna? ->meet_stu.EDNA
     
     =EDNA 
     YOU: Everyone's fascinated with Edna, huh?
