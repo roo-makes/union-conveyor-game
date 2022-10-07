@@ -10973,11 +10973,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[0].value
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[1].value
-      value: 2.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -11038,6 +11038,14 @@ PrefabInstance:
     - target: {fileID: 1847316661644600377, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[0].value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -11133,11 +11141,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[0].value
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[1].value
-      value: 1.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -11198,6 +11206,14 @@ PrefabInstance:
     - target: {fileID: 1847316661644600377, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[0].value
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -11531,11 +11547,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[0].value
-      value: 0.25
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[1].value
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -11596,6 +11612,10 @@ PrefabInstance:
     - target: {fileID: 1847316661644600377, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -13028,11 +13048,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[0].value
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.floatVariables.Array.data[1].value
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1847316661644600374, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -13093,6 +13113,10 @@ PrefabInstance:
     - target: {fileID: 1847316661644600377, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value
@@ -14063,6 +14087,10 @@ PrefabInstance:
     - target: {fileID: 1847316661644600377, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
+      propertyPath: fsm.variables.floatVariables.Array.data[1].value
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7484920308715875044, guid: 944b12a9e29f04501aeb0999472bc939, type: 3}
       propertyPath: fsm.variables.gameObjectVariables.Array.data[0].value

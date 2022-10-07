@@ -3335,7 +3335,7 @@ MonoBehaviour:
           intValue: 4
         fsmFloatParams:
         - useVariable: 1
-          name: 
+          name: shuttleTime
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3347,7 +3347,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: shuttleTime
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3453,7 +3453,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: 
+          name: widgetGO
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3470,7 +3470,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: 
+            name: widgetGO
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -3516,19 +3516,19 @@ MonoBehaviour:
           intValue: 4
         fsmFloatParams:
         - useVariable: 1
-          name: 
+          name: seekDistance
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: shuttleTime
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: nozzleSeekProgress
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3552,7 +3552,13 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: shuttleTime
+          tooltip: 
+          showInInspector: 0
+          networkSync: 0
+          value: 0
+        - useVariable: 1
+          name: widgetX
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3564,37 +3570,31 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: nozzleSeekProgress
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: seekDistance
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: widgetX
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: nozzleSeekProgress
           tooltip: 
           showInInspector: 0
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
-          tooltip: 
-          showInInspector: 0
-          networkSync: 0
-          value: 0
-        - useVariable: 1
-          name: 
+          name: widgetX
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3730,7 +3730,7 @@ MonoBehaviour:
         - ownerOption: 1
           gameObject:
             useVariable: 1
-            name: 
+            name: widgetGO
             tooltip: 
             showInInspector: 0
             networkSync: 0
@@ -3756,7 +3756,7 @@ MonoBehaviour:
         fsmEnumParams: []
         fsmFloatParams:
         - useVariable: 1
-          name: 
+          name: widgetX
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3768,7 +3768,7 @@ MonoBehaviour:
           networkSync: 0
           value: 0
         - useVariable: 1
-          name: 
+          name: widgetX
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -3886,12 +3886,12 @@ MonoBehaviour:
           showInInspector: 1
           networkSync: 0
           typeName: _Game.Scripts.Gameplay.ZoneStateData
-          value: {fileID: 6080850346603375965}
+          value: {fileID: 0}
         fsmVarParams:
-        - variableName: 
-          objectType: 
-          useVariable: 0
-          type: -1
+        - variableName: widgetGO
+          objectType: UnityEngine.GameObject
+          useVariable: 1
+          type: 3
           floatValue: 0
           intValue: 0
           boolValue: 0
@@ -3912,9 +3912,9 @@ MonoBehaviour:
             stringValues: []
             vector4Values: []
             objectReferences: []
-        - variableName: 
+        - variableName: isWidgetInZone
           objectType: UnityEngine.Object
-          useVariable: 0
+          useVariable: 1
           type: 2
           floatValue: 0
           intValue: 0
@@ -3942,7 +3942,7 @@ MonoBehaviour:
         fsmIntParams: []
         fsmBoolParams:
         - useVariable: 1
-          name: 
+          name: isWidgetInZone
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4025,7 +4025,7 @@ MonoBehaviour:
         unityObjectParams: []
         fsmGameObjectParams:
         - useVariable: 1
-          name: 
+          name: widgetGO
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4037,7 +4037,7 @@ MonoBehaviour:
           networkSync: 0
           value: {fileID: 0}
         - useVariable: 1
-          name: 
+          name: widgetGO
           tooltip: 
           showInInspector: 0
           networkSync: 0
@@ -4095,11 +4095,11 @@ MonoBehaviour:
           showInInspector: 1
           networkSync: 0
           typeName: _Game.Scripts.Gameplay.FillZoneStateData
-          value: {fileID: 1503483286028841789}
+          value: {fileID: 0}
         fsmVarParams:
-        - variableName: 
+        - variableName: widgetGO
           objectType: UnityEngine.GameObject
-          useVariable: 0
+          useVariable: 1
           type: 3
           floatValue: 0
           intValue: 0
@@ -4207,25 +4207,25 @@ MonoBehaviour:
     variables:
       floatVariables:
       - useVariable: 1
-        name: 
+        name: widgetX
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: 
+        name: nozzleSeekProgress
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: 
+        name: seekDistance
         tooltip: 
         showInInspector: 0
         networkSync: 0
         value: 0
       - useVariable: 1
-        name: 
+        name: shuttleTime
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -4233,7 +4233,7 @@ MonoBehaviour:
       intVariables: []
       boolVariables:
       - useVariable: 1
-        name: 
+        name: isWidgetInZone
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -4246,7 +4246,7 @@ MonoBehaviour:
       quaternionVariables: []
       gameObjectVariables:
       - useVariable: 1
-        name: 
+        name: widgetGO
         tooltip: 
         showInInspector: 0
         networkSync: 0
@@ -6362,7 +6362,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -11034,7 +11034,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
@@ -11045,7 +11045,7 @@ MonoBehaviour:
     activeStateName: 
     mouseEvents: 0
     handleLevelLoaded: 0
-    handleTriggerEnter2D: 0
+    handleTriggerEnter2D: 1
     handleTriggerExit2D: 0
     handleTriggerStay2D: 0
     handleCollisionEnter2D: 0
@@ -11224,6 +11224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed7f4cc3a154d77915e300fd2bea3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onFailuresUpdated:
+    m_PersistentCalls:
+      m_Calls: []
+  _onSuccessesUpdated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7690217381227252346
 GameObject:
   m_ObjectHideFlags: 0

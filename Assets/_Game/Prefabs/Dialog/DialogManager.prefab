@@ -3028,7 +3028,7 @@ MonoBehaviour:
     manualUpdate: 0
     outVariableIndices: 0b000000
     keepDelayedEventsOnStateExit: 0
-    preprocessed: 0
+    preprocessed: 1
     ExposedEvents: []
     OutputEvents: []
     RestartOnEnable: 1
