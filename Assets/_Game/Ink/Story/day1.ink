@@ -85,6 +85,7 @@ EDNA: Oh my god. I'm going to spend all day doing that.
 YOU: Yup. It's a little harder when you're trying to have a conversation at the same time. Since the work is so tedious, people here love to chat. 
 
 YOU: Make sure to keep working while you listen and decide what to say. If you're distracted you could easily say something rude.
+TRIGGER_ASYNC: cam-conveyors-tight
 YOU: Alright, it's about time to get started.
 TRIGGER_SYNC: start-day
 -> edna_training.after_chatless_tutorial
@@ -131,7 +132,6 @@ EDNA: But no one will mind me being on the quiet side, right?
 - EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. Is he going to be mad?
 YOU: That should be fine. Just go talk to Boss before the end of the day.
 
-TRIGGER_ASYNC: cam-conveyors-tight
 
 
 

@@ -11073,7 +11073,7 @@ GameObject:
   - component: {fileID: 5419254255376460065}
   - component: {fileID: 2644686866229688149}
   m_Layer: 0
-  m_Name: ConveyorStation
+  m_Name: ConveyorStationOneZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
