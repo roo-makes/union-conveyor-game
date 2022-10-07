@@ -164,6 +164,8 @@ TRIGGER_SYNC: start-day
     
 == damien_day1 ==
 
+TRIGGER_ASYNC: damien-cam
+
 DAMIEN: You're training the new girl?
 
 YOU: Yeah, didn't take much.
@@ -208,6 +210,8 @@ DAMIEN: What's she like?
 
 ==damien_goes_over==
 COMMENT: Damien talks to Edna, and you see that they're conversing but not what they're saying.
+TRIGGER_SYNC: damien-goto-edna
+
 DAMIEN: ...
 EDNA: ...
 
@@ -220,18 +224,22 @@ EDNA: ...
 Damien breaks off the conversation awkwardly.
 DAMIEN: Great to meet you!
 EDNA: ...
+TRIGGER_SYNC: damien-walk-back
 
 -> DONE
 
 ==damien_desists==
 COMMENT:Damien does not speak to Edna.
+
 DAMIEN: Nobody gives me a chance...
 {
     -avoid_edna: 
     Edna gathers that you helped deflect Damien from her and gives you a slight smile.
     ~edna_opinion +=1  
     }
-- 
+
+TRIGGER_SYNC: cam-conveyors-tight
+
 -> DONE
 
 ==helena_day_1==
