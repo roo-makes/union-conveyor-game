@@ -85,7 +85,8 @@ EDNA: Oh my god. I'm going to spend all day doing that.
 YOU: Yup. It's a little harder when you're trying to have a conversation at the same time. Since the work is so tedious, people here love to chat. 
 
 YOU: Make sure to keep working while you listen and decide what to say. If you're distracted you could easily say something rude.
-
+YOU: Alright, it's about time to get started.
+TRIGGER_SYNC: start-day
 -> edna_training.after_chatless_tutorial
 
 = after_chatless_tutorial
@@ -132,7 +133,7 @@ YOU: That should be fine. Just go talk to Boss before the end of the day.
 
 TRIGGER_ASYNC: cam-conveyors-tight
 
-YOU: Alright, it's about time to get started.
+
 
     * [We get a counseling session] YOU: Convei, in its infinite generosity, will also give you one free phone counseling session with a therapist. You can talk about work. 
 EDNA: Oh, I had no idea, thanks!
@@ -162,7 +163,7 @@ EDNA: Wow, that's so stupid.
     =started
     EDNA: OK, well. Thanks. I guess I'll get started. 
 
-TRIGGER_SYNC: start-day
+
 
 -> DONE
     
@@ -356,6 +357,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             ~stu_opinion +=1 
             STU: Thanks Carol. 
             YOU: Speaking of crap...
+            ->meet_stu.bathroom
             **** [Fight for bathroom rights]
             ->meet_stu.bathroom
             ****[Got some on your shirt] YOU: You've got some on your shirt.
@@ -369,6 +371,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
         ~stu_opinion -=1
         ~damien_opinion += 1
         STU: We have pretty different concepts of what's funny I suppose.
+        ->meet_stu.bathroom
     * [Never mind.]YOU: Never mind. 
     ->meet_stu.EDNA
     
