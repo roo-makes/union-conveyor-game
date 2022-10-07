@@ -9,7 +9,8 @@ namespace _Framework
     [CreateAssetMenu(fileName = "FloatVariable", menuName = "Framework/FloatVariable")]
     public class FloatVariable : ScriptableObject
     {
-        [HideInInspector] [SerializeField] private float _value;
+        [SerializeField] private float _defaultValue;
+        private float _value;
         public event Action<float> OnChange;
 
         [ShowInInspector]
@@ -31,6 +32,16 @@ namespace _Framework
         public void ValueChanged()
         {
             OnChange?.Invoke(Value);
+        }
+        
+        void Awake()
+        {
+            _value = _defaultValue;
+        }
+
+        void OnDisable()
+        {
+            _value = _defaultValue;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace _Framework
     [CreateAssetMenu(fileName = "BoolVariable", menuName = "Framework/BoolVariable")]
     public class BoolVariable : ScriptableObject
     {
+        [SerializeField] private bool _defaultValue;
         private bool _value;
 
         [OnValueChanged("ValueChanged")]
@@ -38,6 +39,16 @@ namespace _Framework
         public void ValueChanged()
         {
             OnChange?.Invoke(Value);
+        }
+
+        void Awake()
+        {
+            _value = _defaultValue;
+        }
+        
+        void OnDisable()
+        {
+            _value = _defaultValue;
         }
     }
 }

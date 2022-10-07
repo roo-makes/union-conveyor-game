@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14b5851f5704ae191f385668e5d3186, type: 3}
   m_Name: FillerTime
   m_EditorClassIdentifier: 
-  _value: 0.5
+  _defaultValue: 0.5
