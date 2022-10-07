@@ -84,7 +84,7 @@ YOU: Make sure to keep the work going while you listen and decide what to say. I
 
 = after_chatless_tutorial
 
-EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more chatter. 
+EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more talking. 
 
     *[That's a lot] YOU: That's a lot of siblings. 
     EDNA: Yeah, I'm kind of forced to take care of them. I hate it.
@@ -100,7 +100,7 @@ EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They ta
         ** [Yikes] YOU: Yikes.
         EDNA: Yeah.
     ->conveyor_and_chat_tutorial
-
+EDNA: But no one will mind me being on the quiet side, right?
     * [People might be offended.] YOU: People might be offended. 
     EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
     -> conveyor_and_chat_tutorial
@@ -180,31 +180,31 @@ DAMIEN: What's she like?
     * [Don't know] YOU: I didn't get to know much about her.
     DAMIEN: I bet she wants to talk to me. I should talk to her.
 -
-        ** I really don't think so. She seems to have her own stuff going on.
+        ** [Don't think so] YOU: I really don't think so. She seems to have her own stuff going on.
         ~damien_opinion -=1 
         DAMIEN: If the boss didn't keep making us work late, maybe I could make some friends outside of work. Or get a date. According to my timeline, I'm supposed to be engaged next year to have three kids on schedule.
     
-            ***I'm too old to have your three kids Damien. Don't bother.
+            ***[I can't have your kids] YOU: I'm too old to have your three kids Damien. Don't bother.
             DAMIEN: Ha ha, good one Carol. But seriously. If I don't meet anyone here, I'm not going to meet anyone anywhere. I'll take my chances.
             ->damien_goes_over
     
-            ***Have you tried getting a hobby?
+            ***[Get a hobby?] YOU: Have you tried getting a hobby?
             DAMIEN: I'm pretty much a legend on the pickup artist forums. My manifesto is the most popular one left online after the media blamed that terrorist attack on us. I wouldn't want to hang out with any of the freaks from there though.
             YOU: Damien, please leave Edna alone.
             DAMIEN: Fine, whatever.
             ~damien_opinion -=1 
             ->damien_desists
     
-            *** If that's what you're thinking about, you should definitely leave her alone. 
+            *** [Leave her alone] YOU: If that's what you're thinking about, you should definitely leave her alone. 
             DAMIEN: You're right, folks can smell desperation. That's what they keep telling me when I try to start a conversation.
             ->damien_desists
     
-    ** Why not ask?
+    ** [Why not ask?] YOU: Why not ask?
     DAMIEN: You're right!
     ~damien_opinion += 1 
     ->damien_goes_over
     
-    ** Do whatever you want Damien.
+    ** [Do whatever you want] YOU: Do whatever you want Damien.
     ->damien_goes_over
 
 
@@ -234,7 +234,7 @@ COMMENT:Damien does not speak to Edna.
 DAMIEN: Nobody gives me a chance...
 {
     -avoid_edna: 
-    Edna gathers that you helped deflect Damien from her and gives you a slight smile.
+    EDNA: Thanks for helping give me some breathing space Carol.
     ~edna_opinion +=1  
     }
 
@@ -328,7 +328,10 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
         STU: We're living the dream here Carol. The wife and kids and I are going to Greece in a month though - I don't know how I'll deal with being away from the conveyor. 
             YOU: Are you allowed to use the bathroom in Greece?
             STU: Yeah, in that sense it might be nicer. But you have to ask in Greek. Here you don't need to ask at all, cause it's not happening anyway. 
-            *** [We could change that] -> meet_stu.bathroom 
+            *** [We could change that]
+            *** [If you like hearing "no"] YOU: Of course you can ask, if you like hearing the word "no."
+            ***[I'd learn Greek] YOU: I'd learn Greek if that's what it took to step off the line for a second.
+            --- -> meet_stu.bathroom
     * [Everyone's fascinated with Edna] YOU: Everyone's fascinated with Edna, huh?
         STU: And what, you think I'm like Damien?
         **[No, but...] YOU: No, but considering how boring it is here people can get obsessed with a fresh face. 
@@ -339,7 +342,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
         ** [He's persuasive] YOU: Well, apparently he has a large following online. 
         ~stu_opinion -=1
         STU: Yeah, and that is truly scary. You think he got me?
-            *** [Never!] YOU: No way, you'd never go for that crap.
+            **** [Never!] YOU: No way, you'd never go for that crap.
             ~stu_opinion +=1 
             STU: Thanks Carol. 
             YOU: Speaking of crap...
@@ -352,11 +355,15 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             
             **** [Leave it alone]
             ->meet_stu.bye
+        ** [He's not so bad] YOU: Damien isn't so bad. Kind of funny at least.
+        ~stu_opinion -=1
+        ~damien_opinion += 1
+        STU: We have pretty different concepts of what's funny I suppose.
     * [Never mind.]YOU: Never mind. 
     ->meet_stu.bye
     
 =bathroom
-YOU: We could try standing up for our right to pee. 
+YOU: We COULD try standing up for our right to pee. 
 ~labor_unrest += 1
 STU: Sure, I bet the BOSS will find it funny at least.
 YOU: More likely he'll be pissed, but I don't really care.
@@ -371,7 +378,7 @@ STU: Funny. But this is just a job. I keep myself good and dehydrated during the
             - -> meet_stu.bye
     
     =bye
-    STU: Well, I'm getting a bit behind on my cylinders here. Talk to you later Carol.
+    STU: Well, I'm getting a bit behind on my tubes here. Talk to you later Carol.
     
 -> DONE
     
