@@ -15,6 +15,7 @@ namespace _Game.Scripts.Dialog
             {
                 StringData = knot
             };
+            Fsm.EventData = eventData;
             _dialogFsm.SendEvent("gl-startKnot");
         }
     }
