@@ -41,6 +41,7 @@ namespace _Game.Scripts.Dialog
             {
                 var curLine = _inkStory.currentText.Trim();
                 var colonIdx = curLine.IndexOf(":");
+                if (colonIdx < 1) return "DEFAULT";
                 return curLine.Substring(0, colonIdx).Trim();
             }
         }
@@ -67,6 +68,7 @@ namespace _Game.Scripts.Dialog
             {
                 var curLine = _inkStory.currentText.Trim();
                 var colonIdx = curLine.IndexOf(":");
+                if (colonIdx < 1) return curLine;
                 return curLine.Substring(colonIdx + 1).Trim();
             }
         }
@@ -142,6 +144,11 @@ namespace _Game.Scripts.Dialog
         public void ChooseChoiceIndex(int index)
         {
             _inkStory.ChooseChoiceIndex(index);
+        }
+
+        public void StartFromKnot(string knot)
+        {
+            _inkStory.ChoosePathString(knot);
         }
     }
 }

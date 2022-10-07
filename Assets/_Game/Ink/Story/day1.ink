@@ -126,9 +126,9 @@ EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They ta
 - EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. That seems ok, right? 
 YOU: That should be fine. Just go talk to the boss before the end of the day.
 
+TRIGGER_ASYNC: cam-conveyors-tight
 
-
-YOU: Alright, that's our sign to start for real. 
+YOU: Alright, it's about time to get started.
 
     * [We get a discount downstairs] YOU: Don't forget, we get a very small discount at the diner downstairs. 
 EDNA: Oh, I had no idea, thanks!
@@ -157,12 +157,13 @@ EDNA: Wow, that's so stupid.
     ->started
     =started
     EDNA: OK, well. Thanks. I guess I'll get started. 
-TRIGGER_ASYNC: start-day
+
+TRIGGER_SYNC: start-day
+
 -> DONE
     
     
 == damien_day1 ==
-COMMENT: It's 11am.
 
 DAMIEN: You're training the new girl?
 

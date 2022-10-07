@@ -55,3 +55,4 @@ MonoBehaviour:
   - gl-onTrigger
   - gl-triggerComplete
   - gl-dialogDone
+  - gl-startKnot

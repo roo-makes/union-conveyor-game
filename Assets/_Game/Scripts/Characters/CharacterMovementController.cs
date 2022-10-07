@@ -65,7 +65,7 @@ namespace _Game.Scripts.Characters
 
         private void CompletedPath()
         {
-            OnCompletedPath.Invoke();
+            OnCompletedPath?.Invoke();
             _onCompletePath.Invoke();
         }
     }
