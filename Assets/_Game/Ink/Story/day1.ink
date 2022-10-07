@@ -177,7 +177,7 @@ DAMIEN: What's she like?
 
     * [Nice but shy] YOU: Nice, but pretty shy. Don't worry if she doesn't talk too much.
     DAMIEN: Man, all there is to do here is talk. I've got an hour on the train to get home to my empty apartment. I wouldn't say a word for days if it wasn't for talking to you all. And talking to myself. Do you think she'll be my friend?
-    * [Don't know] You: I didn't get to know much about her.
+    * [Don't know] YOU: I didn't get to know much about her.
     DAMIEN: I bet she wants to talk to me. I should talk to her.
 -
         ** I really don't think so. She seems to have her own stuff going on.
@@ -381,22 +381,25 @@ EDNA: So Carol ... you think I should just go ask him, now?
 
 YOU: Yeah, just tell him you've gotta pick up your little brother early today. He has kids. He'll get it.
 
-EDNA: Edna enters the boss's office.
+TRIGGER_SYNC: edna-goto-boss
 
-COMMENT: Time passes and the whistle blows for quitting time. 
+-> DONE
+
+==day1_over==
+TRIGGER_SYNC: day-end
 
 YOU: Edna hasn't left the BOSS's office yet.
 
 YOU: Edna's going to be really late to get her brother.
 
     * [Wait for her] YOU: I'll wait around and make sure everything is ok.
-    -> edna_disappears.wait
+    -> day1_over.wait
 
     * [Ask tomorrow] YOU: I'll ask her what happened tomorrow.
-    -> edna_disappears.leave
+    -> day1_over.leave
 
     * [Whatever.] YOU: Whatever.
-    -> edna_disappears.leave
+    -> day1_over.leave
     
 =wait
 YOU:  Where is she?
@@ -404,8 +407,11 @@ COMMENT: More time passes, and everyone else is gone. The light in the boss's of
 YOU: Goddamnit, I can't stay here all night.
 ->day1_end
 =leave 
-You leave.
 ->day1_end
 
 ==day1_end==
+
+TRIGGER_SYNC: carol-leaves
+TRIGGER_SYNC: scene-end
+
 -> END
