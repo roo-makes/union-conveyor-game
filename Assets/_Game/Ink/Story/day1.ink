@@ -1,4 +1,6 @@
 INCLUDE final_day
+INCLUDE day2
+
 VAR boss_opinion = 5
 VAR edna_opinion = 5
 VAR labor_unrest = 0
@@ -109,20 +111,17 @@ EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They ta
 
     = conveyor_and_chat_tutorial
 
-        ** [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
+        * [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
         EDNA: Thanks!
         ~edna_opinion += 1
         ~avoid_edna = true
-        ** [Got it.] YOU: Got it.
+        * [Maybe] YOU: Yeah, maybe. What do I know?
+        * [Got it.] YOU: Got it.
 
-    * [Just explain yourself at least, and I'm sure everyone will understand.]YOU: Just explain yourself at least, and I'm sure everyone will understand.
+        * [Just explain yourself] YOU: Just explain yourself at least, and I'm sure everyone will understand.
         EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
-        ** [I'll mention to everyone that you just like to keep to yourself.] YOU: I'll mention to everyone that you just like to keep to yourself.
-        EDNA: Thanks!
-        ~edna_opinion += 1
-        ~avoid_edna = true
 
-        ** [Got it.] YOU: Got it.
+
 - EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. That seems ok, right? 
 YOU: That should be fine. Just go talk to the boss before the end of the day.
 
