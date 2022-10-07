@@ -1,8 +1,4 @@
 
-TODO: Add more Patricia, including conversation.
-TODO: Add more references to sanitizing being a pain.
-TODO: Finish conditional confrontation section.
-TODO: Write conditional epilogues.
 
 ==day2_boss_announce==
 BOSS: Unfortunately, Edna didn't end up being a great fit. We're a family here, and like many families, we've had to make the difficult decision to cut ties with a poorly-performing relative who does not help us meet our objectives at this time.
@@ -13,10 +9,9 @@ BOSS: I hired a loser. I've exhibited that tendency in the past, and in many cas
 BOSS: This doesn't entirely absolve me of blame, but to be fair to myself I should note that many of our applicants are among the most worthless our society has to offer.
 BOSS: In any case, you won't have to pay the price for Edna's inadequacy and pick up her slack today. I've brought in Patricia, my neice, to help out. Everyone, welcome Patricia.
 TRIGGER_SYNC: patricia-enter
-BOSS: Also, I have some good news! We changed suppliers for our bottles to save some cash, but we now have to sanitize the bottles before filling. 
+BOSS: Also, I have some good news! Due to a large number of complaints, we will now be sanitizing the bottles before filling. 
 BOSS: First, press and hold {left_btn} to charge the sanitizer. Then, when bottles are in the first zone on your left, press {left_btn} again to sanitize all of the ones in that zone.
 BOSS: You'll figure it out.
-
 -> day2_helena
 
 ==day2_helena==
@@ -48,14 +43,14 @@ HELENA: I feel like this is worse than a firing. I wouldn't put any depraved shi
 
 =organize
     * [Everyone is mad] YOU: We can't be the only ones who are pissed about this.
-    HELENA: You're right. You talk to Stu today. I'll see what Charlie thinks. We'll report back.
+    HELENA: You're right. You talk to Stu today. I'll see what Sid thinks. We'll report back.
     ~helena_opinion +=1 
     *[Have you organized people before?] YOU: Did you ever get people to work together at your old office job?
     ~helena_opinion += 1 
     HELENA: Well, we never got as far as forming ...
     ...
     a union or anything. 
-    HELENA: But we did get everyone to demand a pay increase. Which also put a target on my back. But still, I think we can accomplish something here. You talk to Stu and I'll see if we can get Charlie motivated.
+    HELENA: But we did get everyone to demand a pay increase. Which also put a target on my back. But still, I think we can accomplish something here. You talk to Stu and I'll see if we can get Sid motivated.
     *[You're friendly with Boss, right?] YOU: You're kinda friendly with the boss, right? Can't you convince him to treat us better?
     ~helena_opinion -=1 
     HELENA: What?? Are you TRYING to insult me? Pretty sure that guy hates me.
@@ -125,7 +120,6 @@ DAMIEN: Oh, yeah, that's not fair and all.
     DAMIEN: I know! Sometimes it makes me feel like I'm going to pee my pants. But I haven't.
     YOU: Well, you shouldn't have to worry about that, any more than the normal amount anyway.
     DAMIEN: Our chats always put me in a thoughtful mood. Thanks Carol.
-
     TRIGGER_SYNC: cam-zoomed-out
 
 - -> DONE
@@ -133,7 +127,6 @@ DAMIEN: Oh, yeah, that's not fair and all.
 ==day2_stu==
     TRIGGER_SYNC: cam-stu
     YOU: ...Stu?
-
     *[Hey Stu] YOU: Hey there, Stu.
     STU: Hey Carol. Weird day today.
     YOU: Seriously.
@@ -201,7 +194,6 @@ DAMIEN: Oh, yeah, that's not fair and all.
 =end 
 STU: Alright, I'll talk to you later Carol.
 TRIGGER_SYNC: cam-conveyors-tight
-
 ->DONE
     
 =bad_bosses
@@ -233,8 +225,10 @@ TRIGGER_SYNC: edna-pause
 EDNA: They're deschhhhhh... I can't cut through
 TRIGGER_SYNC: edna-pause
 EDNA: I'm ooooooshhh here but shhhhhsss help you.
+YOU: Does anybody else see this?
+EDNA: Patricia ssshhhhhssefff but my sseefffsfs inside her
+EDNA: eeerrrrrraeawwwww not to be trusted.
 TRIGGER_SYNC: edna-flash-end
-YOU: ....did anybody else see that?
 ->DONE
 
 
@@ -243,6 +237,7 @@ YOU: ....did anybody else see that?
 
 ===damien_day2_convo2===
 TRIGGER_ASYNC: cam-damien
+
 DAMIEN: Now I've gotta talk to Patricia.
 
 YOU: Damien. I don't know how this can be true if she's working in this facility, but I think she's like 10?
@@ -274,7 +269,6 @@ DAMIEN: Oh, I figure if we weren't doing it before, no one will notice the ones 
 
 TRIGGER_SYNC: cam-conveyors-tight
 
-
 ->DONE
 
 ==complain_day2==
@@ -296,7 +290,6 @@ STU: I bet I'm next. I'm always the target.
     
     ===helena_confronts===
 TRIGGER_SYNC: helena-confront-boss
-
 HELENA: Boss! We've gotta talk.
 TRIGGER_SYNC: boss-goto-door
 BOSS: Oh yeah? What about?
@@ -308,21 +301,34 @@ HELENA: Things have been shitty here for a while, but firing Edna after one day 
     
 ==carol_confronts==
 TRIGGER_SYNC: carol-confront-boss
-
 YOU: Boss! We've gotta talk.
 TRIGGER_SYNC: boss-goto-door
 BOSS: Yeah?
 -> confront
 
 =confront
+TRIGGER_SYNC: edna-flash
+EDNA: ... gotta help show they mean business
+EDNA:  ... think I can shut the conveyor down
+TRIGGER_SYNC: edna-pause
+EDNA: ... then he'll have no choice but to listen
+TRIGGER_SYNC: edna-shutdown
+TRIGGER_SYNC: edna-flash-end
+BOSS: What the hell? What's going on out here??
+PATRICIA: Come on, let's get this conveyor moving again everyone! We can figure it out.
+STU: I'm not a mechanic.
+SID: I know I don't complain much, but things are getting pretty bad here.
 * [We're pissed] YOU: We're pretty pissed off. You got rid of Edna after one day. You have us doing this new sanitization thing for the same pay. We still don't have bathroom breaks.
+SID: I do like going to the bathroom.
 ~labor_unrest += 3
 BOSS: Yes, those are all within the realm of business decisions. My job. Sanitizing and filling tubes? Your job.
 { stu_opinion > 3 :
 STU: This is serious. Don't blow us off.
 -> carol_confronts.stage2
 ~labor_unrest +=1
-stu_opinion < 3 :
+}
+
+{stu_opinion < 3 :
 STU: Whatever, he's never going to take us seriously. 
 ~labor_unrest -=1
 -> carol_confronts.stage2
@@ -336,7 +342,9 @@ BOSS: Sure, sure. Just write it down and hand it over before you leave.
     STU: This is serious. Don't blow us off.
     ~labor_unrest +=1
     -> carol_confronts.stage2
-    stu_opinion < 3 :
+    }
+    
+    {stu_opinion < 3 :
     STU: Whatever, let's just write it out Carol. 
     ~labor_unrest -=1
     -> carol_confronts.stage2
@@ -344,10 +352,10 @@ BOSS: Sure, sure. Just write it down and hand it over before you leave.
 =stage2
     *[Bathroom breaks are a right] YOU: Bathroom breaks are a human right. You can't keep us at these belts all day.
     ~labor_unrest +=1
-
+DAMIEN: Seriously, I heard dehydration is bad.
 
     *[The pace is too fast] YOU: These belts move too fast. We can hardly keep up.
-
+SID: Yeah, I'm constantly falling behind now.
     ~labor_unrest +=1 
 
 
@@ -359,7 +367,9 @@ BOSS: Sure, sure. Just write it down and hand it over before you leave.
         HELENA: I'm not gonna stand for it either.
         ~labor_unrest +=1
         -> carol_confronts.stage3
-        helena_opinion < 5 :
+        }
+        
+        {helena_opinion < 5 :
         HELENA: Maybe there's no hope for this shitty place.
         ~labor_unrest -=1
         -> carol_confronts.stage3
@@ -368,18 +378,20 @@ BOSS: Sure, sure. Just write it down and hand it over before you leave.
 
 YOU: See, it's not just me who's fed up.
 
+PATRICIA:Some of us are very happy though!
 
     
 
     *[Could fire us at any moment] YOU: After what happened to Edna, how can any of us feel secure in our jobs?
-    BOSS: Listen, personnell decisions are for me to make. You don't need to know where Edna went, or why. Just believe me that if you keep doing a good job, or start doing a good job, you'll be fine.
+    BOSS: Listen, personnel decisions are for me to make. You don't need to know where Edna went, or why. Just believe me that if you keep doing a good job, or start doing a good job, you'll be fine.
     ~labor_unrest +=1
     
     *[And what goes on here anyway] YOU: And then we don't even get to know what we're doing here. Is making toothpaste a matter of national security or something?
     BOSS: Carol, you've been here for over a decade now, and now you've got a problem?
-    YOU: Yeah, my curiousity has grown.
+    YOU: Yeah, my curiosity has grown.
     BOSS: Once again, you're getting into things that have nothing to do with you, and that you'll deeply regret speaking of ever again.
     ~labor_unrest +=1
+    ->carol_confronts.stage4
     
     *[Let's just get new jobs] YOU: Whatever, we might as well just move on to new jobs.
     BOSS: Great, I hope you feel better. I'll see you back here tommorrow. And the next day.
@@ -396,83 +408,89 @@ YOU: See, it's not just me who's fed up.
     ->carol_confronts.stage4
     }
     =stage4
-    {labor_unrest>6:
+
+    
+    {
+    -labor_unrest>12:
     HELENA: You're going to listen to us, or we're going to walk off. You may not be afraid of us, but you're afraid of what your bosses will say if production shuts down.
-    }
-    
-    {labor_unrest < 6 :
-    HELENA: You have to listen to us. Your tubes don't get filled with red goop without us. 
-    }
-    ->DONE
-    }
-    {else:
+    -labor_unrest < 3 :
     HELENA: I know there's no chance you'll listen to us, so why don't we quit pretending here? 
+
+    -else:HELENA: You have to listen to us. Your tubes don't get filled with red goop without us. 
     }
+  
+{
+    -labor_unrest>12:
+    SID: It's about time we start working together. Boss can't push us around if we're united.
+    -labor_unrest < 3 :
+    SID: Ok, I've had about enough of this. I'm not ready to lose my job today.
+
+    -else:SID: We just have some pretty reasonable requests for how we can be treated better.
+    }
+    PATRICIA: Everyone back to work! Come on, we can do this! Go team!
     
     
-    
-    
-    {labor_unrest>6:
+    {
+    -labor_unrest>12:
     STU: We need to have a say in how this place is run, as workers.
+    
+    -labor_unrest < 3:
+    STU:  I just want to stay out of this. 
+    
+    -else: STU: We just want you to stop pushing us around. 
     }
     
-    {labor_unrest < 6 :
-    STU: We just want you to stop pushing us around. 
-    }
-    ->DONE
-    }
-    {else:
-    STU: I just want to stay out of this.
-    }
+
+
     
-    
-      {labor_unrest>6:
+      {
+      -labor_unrest>12:
     DAMIEN: It's a lot of us against one of you.
-    }
     
-    {labor_unrest < 6 :
+    -labor_unrest < 3 :
+    DAMIEN: Carol and Helena need to relax.
+    -else:
     DAMIEN: If I'm going to stay here as long as Carol has, it's got to be a better place to work.
     }
-    ->DONE
-    }
-    {else:
-    DAMIEN: Carol and Helena need to relax.
-    }
-
-->DONE
+    
+->endgame
+    
+    =to_end
+->endgame   
 
 
 
 
-COMMENT: Fade to black screen?
-
-==end==
+===endgame===
+TRIGGER_SYNC: day-end
 YOU: Everything at Convei changed after that day.
-      {~labor_unrest>6:
+      {
+      -labor_unrest>12:
     YOU: We realized the power we held by working together for once, and made it official with a union.
     YOU: It goes without saying that Boss tried to bust it. 
     YOU: But Helena's in a meeting right now negotiating our new contract.
     YOU: Still, I could tell there was something else going on. Not only was Boss scared of us - he was scared of his bosses. 
     YOU: It always seemed like far more than the fear just of losing his job.
     YOU: Eventually he said that a representative would be visiting soon. Something about traveling from another plane. 
-    
-    ->END
-    
-    ~labor_unrest<3:
+
+
+    -labor_unrest<3:
     YOU: Helena quit almost immediately after. She wanted someplace better to work, or at least someplace she could make better.
     YOU: Damien met someone. He was preparing to see him in person for the first time and also move across the country to live nearby, so his departure was imminent.
     YOU: The whole thing was demoralizing, really.
     YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
     YOU: Someone from corporate was coming up, he said, so we'd better be ready. 
     
-    -> END
+
+
     
-    ~else :
+    -else :
     YOU: We made some progress. Boss backed off some, and things did get better. 
     YOU: We certainly didn't win on everything. Sick leave was a bridge too far.
     YOU: But we felt confident we could win more with time.
     YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
     YOU: Someone from corporate was coming up, he said, so we'd better be ready.
+    TRIGGER_SYNC: scene-end
     ->END
     }
    

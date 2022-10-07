@@ -467,6 +467,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2426983221416797250, guid: 2869c5ed92f764b1b83bb2d33e07a338, type: 3}
+      propertyPath: fsm.states.Array.data[3].actionData.fsmVarParams.Array.data[0].variableName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426983221416797250, guid: 2869c5ed92f764b1b83bb2d33e07a338, type: 3}
       propertyPath: fsm.states.Array.data[3].actionData.fsmVarParams.Array.data[1].variableName
       value: 
       objectReference: {fileID: 0}
