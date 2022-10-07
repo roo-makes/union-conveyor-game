@@ -22,18 +22,21 @@ TRIGGER_ASYNC: carol-goto-boss
 
 BOSS: Hey Carol, get over here.
 
-BOSS: We’ve got a new gal today, name's Edna. Hope she isn’t as lazy as that last guy. Show her how everything works. 
+BOSS: New gal today is Edna. Less lazy than the last guy, I hope. Show her how everything works. 
 
-BOSS: And don’t mention our discount at the diner downstairs. Those jokers will snatch it away if anyone but the bigwigs like us use it.
+BOSS: Don’t mention the free session of phone counseling with a therapist that corporate made us start offering to employees. They're crazy to think that's a worthwhile investment. 
 
-  * [Don't tell about other discount] YOU: And don't forget about our discount on nutritional gruel across the street. She can never know.
+  * [Tell her to work late] YOU: I'll tell her about the policy of keeping up with work email after hours too.
+  BOSS: Now that's...
+  BOSS: The Convei way.
     ~ boss_opinion += 1
+    ~labor_unrest -=1
   * [I can't do that] YOU: I can't do that and you know it.
-        BOSS: Whatever. You think cause you’ve been here 12 years you can talk to me however you want. Maybe Edna’ll be my new favorite.
+        BOSS: Whatever. You think 'cause you’ve been here 12 years you can talk to me however you want. Maybe Edna’ll be my new favorite.
     ~ boss_opinion -= 1
   * [OK] YOU: OK
     BOSS: Great. Knew I could count on you.
-- BOSS: Anyway should be an easy day. Business is slow. *Sighs* That’s all.
+- BOSS: Anyway, should be an easy day. We're filling toothpaste. Big red cylinders full of toothpaste. Sigh. That’s all.
 
 TRIGGER_SYNC: carol-goto-conveyor
 
@@ -41,20 +44,23 @@ TRIGGER_SYNC: carol-goto-conveyor
 
 === edna_training ===
 
-YOU: Hi, I'm Carol. You're Edna?
+YOU: Hi, you're Edna?
 
-EDNA: Hello, yup, I'm Edna.
+EDNA: Hello, yup, and you're Carol, according to your name tag.
 
-YOU: Good to meet you. Welcome to Conveyor. I've been here the longest, so looks like I'm training you.
+YOU: Good to meet you. Welcome to Convei. I've been here the longest, so looks like I'm training you.
 
-EDNA: Training? This doesn't look so hard.
+EDNA: Training? There's one button.
 
-YOU: It's not right now, but the boss is always changing things up on us. I'll help you learn the ropes, but things could be different tomorrow if they get a new contract or something. The same basic principles apply though.
+YOU: That's true right now, but tasks change every day. I'll help you learn the ropes, but chances are you'll have to learn something new tomorrow. 
 
-EDNA: A new contract? For what?
+EDNA: What are we doing today exactly?
 
-YOU: Materials come down the conveyor, we push buttons, and the machines do their thing. Today it looks like some kind of viscous red fluid. They're telling us it's toothpaste but I doubt it.
-YOU: You fill the tube. It  goes into the chute at the end, to god knows where. Sometimes the boss says "we've got a new contract" and they change things up. 
+YOU: Metal tubes come down the conveyor, we push a button, and they fill with viscous red fluid. 
+
+YOU: They continue down the conveyor and into the chute at the end, ending up god knows where.
+
+YOU:  They're telling us it's toothpaste but I doubt it.
 
 EDNA: That sounds both boring and mysterious.
 
@@ -66,7 +72,7 @@ TRIGGER_SYNC: player-conveyor-demo-start
 
 = start_chatless_tutorial
 
-YOU: OK, so when the material arrives in this zone hold down the {center_btn} button, and let go when it gets to the second line. Like this.
+YOU: When the tube arrives in this zone hold down the {center_btn} button, and let go when it gets to the second line. Like this.
 
 TRIGGER_ASYNC: player-conveyor-demo-fill
 
@@ -74,41 +80,41 @@ EDNA: Then what?
 
 YOU: That's it.
 
-EDNA: Oh my god.
+EDNA: Oh my god. I'm going to spend all day doing that.
 
-YOU: Yeah. Well, it's a little harder when you're trying to have a conversation at the same time. Since the work is so tedious, people here love to chat. 
+YOU: Yup. It's a little harder when you're trying to have a conversation at the same time. Since the work is so tedious, people here love to chat. 
 
-YOU: Make sure to keep the work going while you listen and decide what to say. If you don't hit your quota for the day, you'll get a demerit or even get fired if you're bad enough. 
+YOU: Make sure to keep working while you listen and decide what to say. If you're distracted you could easily say something rude.
 
 -> edna_training.after_chatless_tutorial
 
 = after_chatless_tutorial
 
-EDNA: Ugh, I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more talking. 
+EDNA: I don't really want to talk. I have eight younger siblings at home. 3 brothers, 5 sisters. They talk constantly. I don't need any more. 
 
-    *[That's a lot] YOU: That's a lot of siblings. 
+    *[A lot of siblings] YOU: That's a lot of siblings. 
     EDNA: Yeah, I'm kind of forced to take care of them. I hate it.
-        ** [Sucks being here] YOU: If it resulted in you working here, it must be pretty bad.
+        ** [Sucks being here] YOU: If it's got you working here, it must be pretty bad.
         ~labor_unrest += 1
-        EDNA: I can't argue with that.
-         ->conveyor_and_chat_tutorial
+        EDNA: Can't argue with that.
+
     
-        ** [At least you're used to chatter] YOU: At least you're use to people talking constantly. You'll fit in.
+        ** [Try to get used to it] YOU: Well, try to get used to it anyway I guess.
         EDNA: This doesn't bode well.
-        ~edna_opinion +=1 
-     ->conveyor_and_chat_tutorial
-        ** [Yikes] YOU: Yikes.
+
+        ** [Sucks for you] YOU: That sucks for you. I'm so glad I don't have to deal with that.
+        ~edna_opinion -=1 
         EDNA: Yeah.
-    ->conveyor_and_chat_tutorial
+    -- ->conveyor_and_chat_tutorial
 EDNA: But no one will mind me being on the quiet side, right?
-    * [People might be offended.] YOU: People might be offended. 
+    * [People might be offended.] YOU: People might be offended if you don't engage at all. 
     EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
-    -> conveyor_and_chat_tutorial
+
 
     * [Whatever works for you] YOU: Well, whatever works for you.
     EDNA: Do you think anyone will mind?
-    -> conveyor_and_chat_tutorial
 
+    -
     = conveyor_and_chat_tutorial
 
         * [I'll tell people to leave you alone.] YOU: I'll mention to everyone that you just like to keep to yourself.
@@ -118,18 +124,17 @@ EDNA: But no one will mind me being on the quiet side, right?
         * [Maybe] YOU: Yeah, maybe. What do I know?
         * [Got it.] YOU: Got it.
 
-        * [Just explain yourself] YOU: Just explain yourself at least, and I'm sure everyone will understand.
-        EDNA: I hope they can deal with it. I really need this job, but I'm just not a chatterbox.
 
 
-- EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. That seems ok, right? 
-YOU: That should be fine. Just go talk to the boss before the end of the day.
+
+- EDNA: Oh also I've got to leave five minutes early to pick up my little brother Blendo. Is he going to be mad?
+YOU: That should be fine. Just go talk to Boss before the end of the day.
 
 TRIGGER_ASYNC: cam-conveyors-tight
 
 YOU: Alright, it's about time to get started.
 
-    * [We get a discount downstairs] YOU: Don't forget, we get a very small discount at the diner downstairs. 
+    * [We get a counseling session] YOU: Convei, in its infinite generosity, will also give you one free phone counseling session with a therapist. You can talk about work. 
 EDNA: Oh, I had no idea, thanks!
 ~edna_opinion += 1
 ->started
@@ -141,17 +146,17 @@ EDNA: Oh, I had no idea, thanks!
 
 EDNA: Damn, this place is strict. 
 
-SID: Don't forget to tell our new employee about the discount downstairs! 
+SID: Don't forget to tell our new colleague about the free counseling session! 
 
-EDNA: We get a discount where?
-    ** [Not great discount but sure] YOU: They make a huge deal about it, but it's a tiny discount. Go ahead and use it though. And there's one for the hip nutri gruel place.
+EDNA: We get what?
+    ** [Not great benefit but sure] YOU: They make a huge deal about it, but it's single counseling session by phone. Go ahead and use it though. 
 
     ** [Don't use it] YOU: Well, technically, but they don't really like it when you use it. They get mad.
 ~edna_opinion -= 1
 ~labor_unrest -= 1
 ~boss_opinion += 1 
 EDNA: Wow, that's so stupid.
-    ** [Yes! Can't believe that slipped my mind.] YOU: Yes! Can't believe that slipped my mind.
+    ** [Yes! Can't believe that slipped my mind.] YOU: Yes! Can't believe that slipped my mind. We all get one phone call with a therapist.
     -
     ->started
     =started
@@ -182,6 +187,7 @@ DAMIEN: What's she like?
 -
         ** [Don't think so] YOU: I really don't think so. She seems to have her own stuff going on.
         ~damien_opinion -=1 
+
         DAMIEN: If the boss didn't keep making us work late, maybe I could make some friends outside of work. Or get a date. According to my timeline, I'm supposed to be engaged next year to have three kids on schedule.
     
             ***[I can't have your kids] YOU: I'm too old to have your three kids Damien. Don't bother.
@@ -271,6 +277,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
     
     * [We all suck up to the boss] YOU: We've all got to suck up to the boss Helena, what else are we going to do?
     ~helena_opinion -= 1 
+    ~labor_unrest -=1 
     HELENA: Speak for yourself, that's embarrassing. 
     
     - YOU: She seems pleasant enough.
@@ -332,7 +339,10 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
             *** [If you like hearing "no"] YOU: Of course you can ask, if you like hearing the word "no."
             ***[I'd learn Greek] YOU: I'd learn Greek if that's what it took to step off the line for a second.
             --- -> meet_stu.bathroom
-    * [Everyone's fascinated with Edna] YOU: Everyone's fascinated with Edna, huh?
+    * [Everyone's fascinated with Edna] ->meet_stu.EDNA
+    
+    =EDNA 
+    YOU: Everyone's fascinated with Edna, huh?
         STU: And what, you think I'm like Damien?
         **[No, but...] YOU: No, but considering how boring it is here people can get obsessed with a fresh face. 
         ~stu_opinion +=1
@@ -360,7 +370,7 @@ HELENA: Yes you do. Is she gonna suck up to the boss, or is she on our side?
         ~damien_opinion += 1
         STU: We have pretty different concepts of what's funny I suppose.
     * [Never mind.]YOU: Never mind. 
-    ->meet_stu.bye
+    ->meet_stu.EDNA
     
 =bathroom
 YOU: We COULD try standing up for our right to pee. 
