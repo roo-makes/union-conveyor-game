@@ -20,13 +20,13 @@ namespace _Game.Scripts.UI
         {
             var time = (float)_dayDirector.time;
 
-            var hours = Mathf.RoundToInt(time / _secondsPerHour);
-            var mins = Mathf.RoundToInt(60 * (time % _secondsPerHour) / _secondsPerHour);
+            var hours = Mathf.FloorToInt(time / _secondsPerHour);
+            var mins = Mathf.FloorToInt(60 * (time % _secondsPerHour) / _secondsPerHour);
 
             hours += 9;
             if (hours > 12) hours -= 12;
             
-            clockText.text = $"{hours.ToString()}:{mins:D2}";
+            clockText.text = $"{hours}:{mins:D2}";
         }
     }
 }
