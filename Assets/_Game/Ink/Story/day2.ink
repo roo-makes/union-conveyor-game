@@ -36,9 +36,14 @@
 
         HELENA: You're right. We can at least get her side of it.
         
-        TODO: Another stage note left over "Helena talks to the boss, inaudible to you.". Figure out if we want to do a trigger?
+        
+        TRIGGER_ASYNC: helena-goto-boss
+        
+        HELENA: ........
+        BOSS: .......
+        
 
-        HELENA: He said he'll make sure things get to her if we hand them over to him. Unbelievable.
+        HELENA: He said we can't contact her but he'll pass on any of her stuff "if that's even possible down there." Now I'm worried..
 
         ~helena_opinion +=1 
         ~labor_unrest +=1 
@@ -131,7 +136,7 @@
         
         ~damien_opinion +=1
         
-        DAMIEN: Sometimes I feel like you're the only one here who gets me, CAROL.
+        DAMIEN: Sometimes I feel like you're the only one here who gets me, Carol..
         
     *   [She didn't like you] YOU: Damien. She didn't like you. At all, as far as I could tell.
         
@@ -141,7 +146,9 @@
     
     -
     
-    *   [You're just lonely] YOU: I know you're lonely Damien, but I can see where your desperate mind is taking you.
+    *   [You'll find someone] YOU: I know you're lonely Damien, but you'll find someone who actually likes you. You're a catch, kind of.
+    
+    DAMIEN: If you keep joking about that, I'm going to start thinking you really do like me!
 
     *   [Boss wronged you] YOU: I can't believe the Boss would do that to you. He saw you liked Edna. He probably got rid of her to spite you.
 
@@ -150,23 +157,21 @@
 
         DAMIEN: Wow, that's messed up. But I see it!
 
-    *   [Go on?]
+    *   [Probably for the best] YOU: Your desperation might make you think otherwise, but talking to her more would have made her like you less.
         
-        TODO: Is there supposed to be dialog here?
-    
-        ~damien_opinion += 1
-        
-    -   DAMIEN: If you keep joking about that, I'm going to start thinking you really do like me!
-    
-    TODO: I'm confused how the previous line here makes sense. Is it supposed to be the gather for these choices?
 
-    YOU: If you're willing to talk about something real, rather than complete fiction, everyone's talking about how we don't get bathroom breaks.
+    
+        ~damien_opinion -= 1
+        
+    -   
+
+
+    YOU: Let's move on from your delusional fantasies though. Everyone's talking about how we don't get bathroom breaks.
     
     DAMIEN: Oh, yeah, that's not fair and all. 
-    
-    TODO: Add 3rd choice below (ideally a bad choice since it's the default?)
 
-    *   [We're fired up!] YOU: Yeah, we're fired up about it! We're going to confront the boss soon!
+
+    *   [We're fired up!] YOU: Yeah, we're fired up about it! I think we're going to confront the boss soon!
 
         DAMIEN: Ah, yeah. That's cool. Do you think Edna got fired because of... bathroom break?
 
@@ -187,6 +192,14 @@
         DAMIEN: I know! Sometimes it makes me feel like I'm going to pee my pants. But I haven't.
 
         YOU: Well, you shouldn't have to worry about that, any more than the normal amount anyway.
+        
+    * [Maybe it's fine actually] YOU: Actually, the boss should be able to do basically whatever he wants, so it's fine.
+    ~labor_unrest -=1 
+    
+    DAMIEN: Weird, that contradicts what you were just saying. But you're smart, so I'll basically believe what you say.
+    YOU: That means a lot Damien..
+        
+        -
 
         DAMIEN: Our chats always put me in a thoughtful mood. Thanks Carol.
 
@@ -317,10 +330,10 @@
         -> DONE
     
     = bad_bosses
-    
-        TODO: Possible I messed this up when reformatting, but we need additional choices here? Or should this first part just not be a choice?
+
 
         *   [What happened?] YOU: What happened with you?
+        ~stu_opinion +=1
             
             STU: This one guy had it out for me cause I'm really into clothes. He must have thought I was mocking his style, but it's just something I like. 
             
@@ -344,7 +357,7 @@
                 
                 ->day2_stu.end
                 
-                TODO: Where are the commented-out lines below supposed to go?
+
                 
                 //  ***[Won't tolerate a tyrant] YOU: Yeah, we have to show him that we won't tolerate a tyrant.
                 //  ~labor_unrest +=1
@@ -355,7 +368,14 @@
                 ~stu_opinion -= 1
                 
             --
-
+        * [Too bad. Anyway.] YOU: Sorry to hear that. Anyway, I'd better get back to it.
+        
+        *[Probably your fault] YOU: Most of the time when people get fired it's their own fault. 
+        ~stu_opinion -=1 
+        ~labor_unrest -=1 
+        STU: Uh, ok. Not in this case.
+        YOU: Whatever.
+        -
             -> day2_stu.end
 
 === mysterious_whisper_day2 ===
@@ -504,7 +524,7 @@
 
         SID: I know I don't complain much, but things are getting pretty bad here.
         
-        TODO: Add 3rd choice? I guess we don't HAVE to since the conveyors are stopped here but probably still should.
+
 
         *   [We're pissed] YOU: We're pretty pissed off. You got rid of Edna after one day. You have us doing this new sanitization thing for the same pay. We still don't have bathroom breaks.
             
@@ -518,14 +538,14 @@
                 
                 STU: This is serious. Don't blow us off.
     
-                TODO: Why does this increase labor_unrest? It's not the result of a choice
+
                 ~labor_unrest +=1
         
             - else:
 
                 STU: Whatever, he's never going to take us seriously. 
     
-                TODO: Same question as above. Guessing it's intentional since it's here again, so I'm fine with it as long as it's not a mistake.
+
                 ~labor_unrest -=1
             }
 
@@ -551,7 +571,26 @@
 
                 ~labor_unrest -=1
             }
-            
+        *   [Let's take a step back] YOU: Wait wait wait, we're getting a little heated here. Let's take a step back and leave Boss alone.
+
+            ~labor_unrest -= 1
+
+            BOSS: Finally someone's talking sense.
+
+            HELENA: Carol, seriously?
+
+            { labor_unrest > 12 :
+
+                STU: We can't back down now!
+
+                ~labor_unrest +=1
+                
+            - else:
+
+                STU: Carol's probably right. I'm getting nervouse. 
+
+                ~labor_unrest -=1
+            }
         -   -> stage2
 
     = stage2
