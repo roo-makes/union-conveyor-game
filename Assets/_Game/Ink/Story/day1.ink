@@ -1,17 +1,9 @@
 INCLUDE final_day
 INCLUDE day2
+INCLUDE variables.ink
 
-VAR boss_opinion = 5
-VAR edna_opinion = 5
-VAR labor_unrest = 0
-VAR damien_opinion = 5
-VAR helena_opinion = 5
-VAR stu_opinion = 5
-VAR avoid_edna = false
-VAR center_btn = "X"
-VAR left_btn = "Z"
-VAR right_btn = "C"
-VAR big_btn = "space"
+
+
 
 -> day_1_intro
 
