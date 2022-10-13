@@ -1,17 +1,9 @@
-INCLUDE final_day
-INCLUDE day2
+INCLUDE final_day.ink
+INCLUDE day2.ink
+INCLUDE variables.ink
 
-VAR boss_opinion = 5
-VAR edna_opinion = 5
-VAR labor_unrest = 0
-VAR damien_opinion = 5
-VAR helena_opinion = 5
-VAR stu_opinion = 5
-VAR avoid_edna = false
-VAR center_btn = "X"
-VAR left_btn = "Z"
-VAR right_btn = "C"
-VAR big_btn = "space"
+
+
 
 -> day_1_intro
 
@@ -370,7 +362,6 @@ VAR big_btn = "space"
         
         HELENA: You're right. Watch this.
         
-        TODO: This was left as a stage direction, do we want to use it: "Helena says things you can't make out to the boss."
 
         ~helena_opinion +=1
         ~labor_unrest +=1
@@ -520,10 +511,9 @@ VAR big_btn = "space"
             ->meet_stu.bathroom
 
         *   [Never mind.] YOU: Never mind.
-        
-            TODO: If chosen, this option would create a loop. I'm assuming this is a mistake?
+
  
-            ->meet_stu.EDNA
+            ->meet_stu.bathroom
     
     = bathroom
 
@@ -594,7 +584,9 @@ VAR big_btn = "space"
 
         YOU:  Where is she?
 
-        TODO: Add wait trigger. More time passes, and everyone else is gone. The light in the boss's office is still on.
+
+
+        TRIGGER_SYNC: wait-3
 
         YOU: Goddamnit, I can't stay here all night.
 
