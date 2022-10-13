@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: fsm.states.Array.data[2].actionData.fsmOwnerDefaultParams.Array.data[0].gameObject.name
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4440800132092861798, guid: 2869c5ed92f764b1b83bb2d33e07a338, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5419254255376460065, guid: 2869c5ed92f764b1b83bb2d33e07a338, type: 3}
       propertyPath: m_RootOrder
       value: 0
