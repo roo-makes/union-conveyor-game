@@ -20,7 +20,7 @@ namespace _Game.Scripts.Dialog
             _dialogMap = _inputActionAsset.actionMaps.First(map => map.name == "Dialog");
         }
         
-        void Start()
+        void OnEnable()
         {
             _dialogMap.Enable();
             _dialogMap.actionTriggered += InputPerformed;
