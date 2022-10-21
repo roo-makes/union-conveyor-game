@@ -57,3 +57,6 @@ MonoBehaviour:
   - gl-dialogDone
   - gl-startKnot
   - gl-gameOver
+  - gl-sceneLoaderDisappeared
+  - gl-loadScene
+  - gl-activateScene
