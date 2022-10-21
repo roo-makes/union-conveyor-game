@@ -148,6 +148,7 @@ namespace _Game.Scripts.Dialog
 
         public void StartFromKnot(string knot)
         {
+            _inkStory.ResetCallstack();
             _inkStory.ChoosePathString(knot);
         }
     }
