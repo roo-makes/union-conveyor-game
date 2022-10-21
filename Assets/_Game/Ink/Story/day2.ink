@@ -99,6 +99,134 @@
     -   HELENA: Alright, good luck on spreading the word. 
     
     -> DONE
+    
+===sid_stoppage===
+
+    SID: In all my years here, I've never seen someone get fired that fast.
+
+    YOU: There was Lenore back when... seven or eight years ago?
+
+    SID: That's about right. But she lasted a whole week.
+
+        * [And she stole, which was cool] YOU: She was stealing money out of Boss's desk too. Which was cool and all, but it wasn't surprising when she got canned.
+        ~labor_unrest +=1 
+    
+        SID: True. Actually, that's right around when they were upgrading the belts and I found out something cool.
+    
+        * [And she stole] YOU: She was stealing money out of Boss's desk too. So it wasn't much of a surprise she got canned. 
+    
+        SID: True. Actually, that's right around when they were upgrading the belts and I found out something cool.
+    
+        * [Gotta lose the losers] YOU: Like the boss said, some people are just losers and you've got to get rid of them.
+    
+        ~labor_unrest -=1 
+        ~sid_opinion -=1
+    
+        SID: Uh, you ok Carol? Sounds like Boss temporarily took over your body there. Wait a sec, I've got something to show you that'll get you thinking rationally again.
+    
+- 
+    YOU: Oh yeah, what's that?
+    
+    SID: So during the old belt upgrade, the installers included a kill switch that's hidden away in some obscure panel. They told me about it, but I never ended up sharing that information with anyone. 
+    
+    YOU: Wow, so Boss doesn't know?
+    
+    SID: He certainly does not. I figure if he's going to jerk us around and flex his power, we'd better take some control of our own. Time for a little shutdown.
+    
+        * [Do it!] YOU: Do it!
+        ~sid_opinion += 1 
+        ~labor_unrest += 1 
+    
+        * [Wait, be careful] YOU: Hang on - is he going to know you shut it down? We don't need another firing here.
+        ~sid_opinion += 1 
+        SID: Nah, he really has no idea. I'll be a hero for fixing it.
+    
+        *[Don't do it] YOU: Stop! Boss said it's really bad if we don't meet our red goop quotas.
+        ~sid_opinion -= 1 
+        ~labor_unrest -= 1 
+        SID: Carol, it's always been pretty depressing for both of us to work here this long, but only now am I really worried about you. 
+- -> shutdown
+    
+=shutdown
+    TRIGGER_SYNC: sid-shutdown
+
+    SID: There we go. 
+
+    TRIGGER_SYNC : boss_goto_door
+    
+    BOSS: WHAT THE HELL
+    
+    SID: Boss, the stipulator is down again! Don't worry, I'm on it.
+    
+    BOSS: Well hurry up!
+    
+    STU: Heh heh.
+    
+    HELENA: Sid's a man after my own heart.
+    
+    DAMIEN: Damn stipulator! We've got to get it fixed.
+    
+    PATRICIA: It's OK everyone, we can wipe the tubes with our shirts to sanitize, fill them manually, and carry them to the chute at the end!
+    
+    SID: Uh, I've almost got it fixed Patricia. Don't worry about it.
+    
+    TRIGGER_SYNC: helena-pause-end
+    
+    HELENA: Wow, that took some work for Sid to fix. Where'd you get these shitty parts, Boss?
+    
+    BOSS: Shut up. I've gotta make some calls. Don't let it happen again!
+    TRIGGER_SYNC : boss_goto_office
+    
+    *[Sid did it.] 
+    TRIGGER_SYNC: carol-goto-boss
+    YOU: Boss, Sid was the one who shut down the belt. It was no accident. 
+    BOSS: That bastard. Thanks Carol, I knew I could count on you.
+    TRIGGER_SYNC: carol-goto-conveyor
+    ~labor_unrest -= 3 
+    ~rat_sid = true
+    
+    *[These things happen]
+    YOU: These things happen when you have crappy old machinery. We can't really do anything about it.
+    
+    *[Say nothing] YOU: ...
+    -
+    ->DONE
+
+
+==patricia_convo==
+
+PATRICIA: That was really scawwy. 
+
+YOU: Don't worry, the belt isn't going to hurt you. It took a few severed fingers, but they did eventually fix that last year.
+
+PATRICIA: What? I'm not worried about me. But all that lost pwofit. The poor Boss. The shareholders. 
+
+YOU: We have shareholders?
+
+PATRICIA: It's an expwession. 
+
+    * [I don't care] YOU: I'm sure these shareholders, if they do exist, will be fine. 
+    PATRICIA: We'll agwee to disagwee then. 
+    YOU: Agreed.
+    
+    * [I liked it] YOU: I thought it was pretty neat stepping away from the tubes, even if just for a minute.
+    PATRICIA: That's a tewwible attitude. Do you know how to register a complaint about another employee to Boss?
+    YOU: Uh, no. 
+    
+    * [I agree] YOU: Seriously, all I could think of were our disappointed customers.
+    PATRICIA: Oh, I don't really care about them. In fact I've been thinking we should raise prices to get Boss a nice bonus this year.
+    YOU: Oh, gotcha.
+    
+    - PATRICIA: The demons and devils took on a majow wisk getting this place up and running. And the workers are so unruly they had to summon me to blend with one of them to keep production from falling behind.
+    PATRICIA: I've been sleeping for a thousand years. It's not easy to blend with a mortal when -
+    
+    BOSS: PATRICIA!! Stop talking right now! Uh, back to work!
+    
+    PATRICIA: But I've been working?
+    
+    BOSS: QUIET!
+
+->DONE
 
 === damien_day2 ===
 
@@ -106,11 +234,11 @@
 
     DAMIEN: I can't believe it. I blew it.
 
-    *   [What? About Edna?] YOU: What? Is this about Edna?
+    *   [What? About Edna?] YOU: What? The belt stopping went off without a hitch. Is this about Edna?
 
-        DAMIEN: Yes! I fucked up. And now she's gone.
+        DAMIEN: Yes! I fucked up. And now she's gone. Wait, what about the belt?
 
-        YOU: Wait, what do you know Damien?
+        YOU: Nothing. What are you worried about, Damien?
 
         DAMIEN: That I'm going to be alone forever!
 
@@ -118,7 +246,7 @@
 
         DAMIEN: I missed my shot. As always.
 
-    *   [This work doesn't matter] YOU: Nobody cares if a couple baby formula bottles go out unsanitized, Damien.
+    *   [Our work doesn't matter] YOU: Nobody cares if a couple baby formula bottles go out unsanitized, Damien.
 
         DAMIEN: What? Oh, I know. No one cares. It's about Edna.
 
@@ -412,13 +540,13 @@
     
     DAMIEN: Now I've gotta talk to Patricia.
     
-    YOU: Damien. I don't know how this can be true if she's working in this facility, but I think she's like 10?
+    YOU: Damien. I don't know how this can be true if she's working in this facility, but I think she's like 10? Also kind of scary.
     
     DAMIEN: Disgusting Carol, it's not like that. I just haven't met anyone new today.
     
     YOU: What?
     
-    DAMIEN: Usually I go out for a walk before work to talk to a stranger and meet someone new. But I've been so tired all the time since I started really restricting water to avoid peeing at work.
+    DAMIEN: Usually I go out for a walk before work to talk to a stranger and meet someone new. But I've been so tired all the time since I stopped drinking water to avoid peeing at work.
     
     DAMIEN: Meeting people is part of my "one-a-day" philosophy. 
 
@@ -436,7 +564,7 @@
 
         DAMIEN: It's good to have a code, so it's even better to have a bunch of them.
 
-    *   [You jack off once a day?] So you have to jack off once a day?
+    *   [You do EVERYTHING once a day?] YOU: You do EVERYTHING once a day? So you have to jack off once a day?
 
         DAMIEN: Ew Carol, it's not one of those masturbation philosophies! I just do it once a day sometimes and abstain once a day other times.
 
@@ -728,35 +856,37 @@
 
             YOU: But Helena's in a meeting right now negotiating our new contract.
 
-            YOU: Still, I could tell there was something else going on. Not only was Boss scared of us - he was scared of his bosses. 
+            YOU: Still, I could tell there was something else going on. Not only was Boss scared of us - he was more scared of his bosses than ever. 
 
-            YOU: It always seemed like far more than the fear just of losing his job.
+            YOU: It was far more than the fear just of losing his job.
 
-            YOU: Eventually he said that a representative would be visiting soon. Something about traveling from another plane. 
+            YOU: After a couple months of us asserting our power he said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
 
         - labor_unrest < 3:
 
-            YOU: Helena quit almost immediately after. She wanted someplace better to work, or at least someplace she could make better.
+            YOU: It got worse. 
+        
+            YOU: Helena talked about quitting on a daily basis, and it was sad to see her keep coming back despite that. She wanted someplace better to work, or at least someplace she could make better.
 
-            YOU: Damien met someone. He was preparing to see him in person for the first time and also move across the country to live nearby, so his departure was imminent.
+            YOU: Damien met someone, so that was nice at least. He was preparing to see him in person for the first time and also move across the country to live nearby, so his departure was imminent. He said he hoped the new boy looked like his pictures.
 
             YOU: The whole thing was demoralizing, really.
 
-            YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
+            YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about his employees seizing any kind of control, even if just momentary.
 
-            YOU: Someone from corporate was coming up, he said, so we'd better be ready. 
+            YOU: A couple months after the confrontation, Boss said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
 
         - else:
 
-            YOU: We made some progress. Boss backed off some, and things did get better. 
+            YOU: We made some progress, but had to fight for every inch. Things did get better in some ways, but Boss fought like he was possessed, denying or clawing back every improvement that he could.
 
-            YOU: We certainly didn't win on everything. Sick leave was a bridge too far.
+            YOU: We didn't win on everything. Sick leave was a bridge too far. But we were able to leave the line for a few minutes to use the bathroom.
 
-            YOU: But we felt confident we could win more with time.
+            YOU: We felt confident we could win more with time, but Boss kept saying "they" wouldn't be happy about this.
 
-            YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about him letting some employees berate him.
+            YOU: He was clearly angry, but also seemed truly frightened about his boss's reaction to us taking any control in the workplace.
 
-            YOU: Someone from corporate was coming up, he said, so we'd better be ready.
+            YOU: A couple months after the confrontation, Boss said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
     }
     
     TRIGGER_SYNC: scene-end

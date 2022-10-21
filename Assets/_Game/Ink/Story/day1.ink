@@ -349,7 +349,9 @@ INCLUDE variables.ink
     
     *   [Relax about breaks] Can you relax about breaks? It's the busy season. They can't afford to have us jumping off the line for something that can wait.
         
-        HELENA: Oh, the busy season for shipping out scam cleaning products that are just water and blue food coloring. Can't disrupt that. My old office job didn't put nearly this much effort into convincing us we were doing valuable work.
+        HELENA: Oh, the busy season for shipping out toxic red goo. Can't disrupt that. My old office job didn't put half this much effort into convincing us we were doing valuable work Cause we weren't. And we aren't.
+        
+        HELENA: In fact, I've got an idea.
         
         ~helena_opinion -=1
         ~labor_unrest -= 1
@@ -360,7 +362,11 @@ INCLUDE variables.ink
     
     *   [Tell boss you're mad] The boss has no idea how pissed we are. You should tell him.
         
-        HELENA: You're right. Watch this.
+        HELENA: I like your thinking. HEY BOSS - you're a real piece of shit.
+        
+        BOSS: I don't care what you think Helena. Get back to work. Did Carol put you up to this?
+        
+        HELENA: You think I need help to hate you? No way.
         
 
         ~helena_opinion +=1
@@ -371,9 +377,18 @@ INCLUDE variables.ink
         
         HELENA: You're right - as fun as it would be, yelling at the boss wouldn't do much right now.
         
+        HELENA: But I'll keep riling people up. Then we strike. Or attack.
+        
         ~labor_unrest +=1 
     
-    -   HELENA: OK, back to work. Recruiting people, that is.
+    -   TRIGGER_SYNC : helena-pause
+    
+    HELENA: See you later and don't let the bastards get you down.
+    
+    
+    
+    
+    
     
     -> DONE
 
