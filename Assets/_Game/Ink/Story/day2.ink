@@ -806,17 +806,17 @@ PATRICIA: It's an expwession.
     = stage4
     
         {
-            - labor_unrest > 12: HELENA: You're going to listen to us, or we're going to walk off. You may not be afraid of us, but you're afraid of what your bosses will say if production shuts down.
+            - labor_unrest > 7: HELENA: You're going to listen to us, or we're going to walk off. You may not be afraid of us, but you're afraid of what your bosses will say if production shuts down.
 
-            - labor_unrest < 3: HELENA: I know there's no chance you'll listen to us, so why don't we quit pretending here? 
+            - labor_unrest < -2: HELENA: I know there's no chance you'll listen to us, so why don't we quit pretending here? 
 
             - else: HELENA: You have to listen to us. Your tubes don't get filled with red goop without us. 
         }
   
         {
-            - labor_unrest > 12: SID: It's about time we start working together. Boss can't push us around if we're united.
+            - labor_unrest > 7: SID: It's about time we start working together. Boss can't push us around if we're united.
 
-            - labor_unrest < 3: SID: Ok, I've had about enough of this. I'm not ready to lose my job today.
+            - labor_unrest < -2: SID: Ok, I've had about enough of this. I'm not ready to lose my job today.
 
             - else: SID: We just have some pretty reasonable requests for how we can be treated better.
         }
@@ -824,17 +824,17 @@ PATRICIA: It's an expwession.
         PATRICIA: Everyone back to work! Come on, we can do this! Go team!
     
         {
-            - labor_unrest > 12: STU: We need to have a say in how this place is run, as workers.
+            - labor_unrest > 7: STU: We need to have a say in how this place is run, as workers.
 
-            - labor_unrest < 3: STU: I just want to stay out of this. 
+            - labor_unrest < -2: STU: I just want to stay out of this. 
         
             - else: STU: We just want you to stop pushing us around. 
         }
 
         {
-            - labor_unrest > 12: DAMIEN: It's a lot of us against one of you.
+            - labor_unrest > 7: DAMIEN: It's a lot of us against one of you.
     
-            - labor_unrest < 3: DAMIEN: Carol and Helena need to relax.
+            - labor_unrest < -2: DAMIEN: Carol and Helena need to relax.
 
             - else: DAMIEN: If I'm going to stay here as long as Carol has, it's got to be a better place to work.
         }
@@ -848,7 +848,7 @@ PATRICIA: It's an expwession.
     YOU: Everything at Convei changed after that day.
 
     {
-        - labor_unrest > 12:
+        - labor_unrest > 7:
 
             YOU: We realized the power we held by working together for once, and made it official with a union.
 
@@ -861,8 +861,10 @@ PATRICIA: It's an expwession.
             YOU: It was far more than the fear just of losing his job.
 
             YOU: After a couple months of us asserting our power he said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
+            
+            ~high_unrest = true
 
-        - labor_unrest < 3:
+        - labor_unrest < -2:
 
             YOU: It got worse. 
         
@@ -875,6 +877,7 @@ PATRICIA: It's an expwession.
             YOU: Still, Boss was clearly angry, and a little scared of what his bosses had to say about his employees seizing any kind of control, even if just momentary.
 
             YOU: A couple months after the confrontation, Boss said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
+            ~low_unrest = true
 
         - else:
 
@@ -887,6 +890,7 @@ PATRICIA: It's an expwession.
             YOU: He was clearly angry, but also seemed truly frightened about his boss's reaction to us taking any control in the workplace.
 
             YOU: A couple months after the confrontation, Boss said that someone high up in the company would be visiting soon. Apparently something about moving between planes made it especially difficult. I've never done much air travel, so I didn't get it. 
+            ~med_unrest = true
     }
     
     TRIGGER_SYNC: scene-end
